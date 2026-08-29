@@ -10,14 +10,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#16302c;
-    --sage:#eef1e9;
-    --sage-deep:#dfe6d6;
-    --teal:#1f4a45;
-    --teal-soft:#3c6b62;
-    --coral:#e2653a;
-    --coral-soft:#f2c6b4;
-    --paper:#faf9f5;
+    --ink:#153a33;
+    --sage:#eef5e5;
+    --sage-deep:#dbe9cb;
+    --teal:#1d6459;
+    --teal-soft:#36725f;
+    --coral:#f06a34;
+    --coral-soft:#f9ccb8;
+    --paper:#fdfcf6;
     --line: rgba(22,48,44,0.14);
     --maxw: 1080px;
   }
@@ -736,14 +736,14 @@
 
     if (fromUrl){
       code = fromUrl;
-      partner = true;
     } else if (stored){
       code = stored;
-      partner = (stored !== DEFAULT_CODE);
     } else {
       code = DEFAULT_CODE;
-      partner = false;
     }
+    // The "Referred by" pill only appears for a real partner referral —
+    // i.e. an active code that isn't the owner's own default code.
+    partner = (code !== DEFAULT_CODE);
     lsSet(LS_CODE, code);
     return { code: code, partner: partner };
   }
