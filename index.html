@@ -409,7 +409,7 @@
 
   /* ---------- Back to top ---------- */
   .to-top{
-    position:fixed; right:22px; bottom:22px; z-index:60;
+    position:fixed; right:22px; bottom:88px; z-index:60;
     width:46px; height:46px; display:grid; place-items:center;
     border-radius:50%; cursor:pointer;
     color:#fff; border:1px solid rgba(207,159,63,0.6);
@@ -421,7 +421,79 @@
   .to-top.is-visible{ opacity:1; transform:none; pointer-events:auto; }
   .to-top:hover{ filter:brightness(1.12); transform:translateY(-2px); }
   .to-top svg{ width:20px; height:20px; display:block; }
-  @media (max-width:520px){ .to-top{ right:16px; bottom:16px; } }
+  body.chat-open .to-top{ display:none; }
+  @media (max-width:520px){ .to-top{ right:16px; bottom:80px; } }
+
+  /* ---------- FAQ chat ---------- */
+  .chat__launcher{
+    position:fixed; right:22px; bottom:22px; z-index:70;
+    width:56px; height:56px; display:grid; place-items:center;
+    border-radius:50%; cursor:pointer; color:#fff;
+    border:1px solid rgba(207,159,63,0.6);
+    background:linear-gradient(135deg, #10263c 0%, #24507a 100%);
+    box-shadow:0 16px 32px -10px rgba(16,38,60,0.6);
+    transition:filter .15s ease, transform .15s ease;
+  }
+  .chat__launcher:hover{ filter:brightness(1.12); transform:translateY(-2px); }
+  .chat__icon{ width:24px; height:24px; }
+  .chat__panel{
+    position:fixed; right:22px; bottom:88px; z-index:71;
+    width:340px; max-width:calc(100vw - 32px);
+    max-height:min(70vh, 560px); display:flex; flex-direction:column;
+    background:var(--paper); border:1px solid var(--line); border-radius:14px;
+    box-shadow:0 30px 60px -20px rgba(16,38,60,0.45);
+    overflow:hidden;
+  }
+  .chat__head{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding:14px 16px; color:#fff;
+    background:linear-gradient(135deg, #10263c 0%, #24507a 100%);
+  }
+  .chat__title{ font-size:1rem; margin:0; color:#fff; }
+  .chat__x{
+    flex:0 0 auto; width:30px; height:30px; display:grid; place-items:center;
+    background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.35);
+    border-radius:50%; color:#fff; cursor:pointer;
+  }
+  .chat__x svg{ width:16px; height:16px; }
+  .chat__log{
+    flex:1 1 auto; overflow-y:auto; padding:16px;
+    display:flex; flex-direction:column; gap:12px;
+  }
+  .chat__log:focus{ outline:none; }
+  .chat__msg{ display:flex; }
+  .chat__msg--bot{ justify-content:flex-start; }
+  .chat__msg--user{ justify-content:flex-end; }
+  .chat__bubble{
+    margin:0; max-width:85%; padding:10px 13px; border-radius:12px;
+    font-size:14px; line-height:1.5;
+  }
+  .chat__msg--bot .chat__bubble{ background:var(--sage); color:var(--ink); border-bottom-left-radius:4px; }
+  .chat__msg--user .chat__bubble{ background:var(--teal); color:#fff; border-bottom-right-radius:4px; }
+  .chat__again{ font-size:11px; text-transform:uppercase; letter-spacing:.09em; color:var(--teal-soft); margin:4px 0 0; }
+  .chat__chips{ display:flex; flex-direction:column; gap:8px; }
+  .chat__chip{
+    text-align:left; font:inherit; font-size:13.5px; line-height:1.4;
+    padding:10px 12px; border:1px solid var(--line); border-radius:10px;
+    background:var(--paper); color:var(--teal); cursor:pointer;
+    transition:border-color .15s ease, background-color .15s ease;
+  }
+  .chat__chip:hover{ border-color:var(--teal-soft); background:#fff; }
+  .chat__actions{ display:flex; gap:8px; margin-top:6px; flex-wrap:wrap; }
+  .chat__action{
+    flex:1 1 auto; text-align:center; text-decoration:none;
+    font-size:13px; font-weight:500; padding:10px 12px; border-radius:10px;
+    background:linear-gradient(135deg, #9c6f16 0%, #7c540c 100%); color:#fff;
+  }
+  .chat__action--ghost{ background:transparent; color:var(--teal); border:1px solid var(--teal); }
+  .chat__disc{
+    margin:0; padding:10px 16px 14px; font-size:11px; line-height:1.5;
+    color:var(--teal-soft); border-top:1px solid var(--line); background:var(--paper);
+  }
+  @media (max-width:520px){
+    .chat__panel{ right:12px; left:12px; bottom:84px; width:auto; max-width:none; }
+    .chat__launcher{ right:16px; bottom:16px; }
+  }
 
   /* ---------- Responsive ---------- */
   @media (max-width: 860px){
@@ -488,6 +560,8 @@
     .btn:hover, .step:hover, .why__grid li:hover, .callout:hover{ transform:none; }
     .to-top{ transition:opacity .001s linear; }
     .to-top.is-visible, .to-top:hover{ transform:none; }
+    .chat__launcher{ transition:none; }
+    .chat__launcher:hover{ transform:none; }
     #cellMotif, #cellMotif circle, .cell-line{ animation:none !important; }
     .cell-line{ display:none !important; }
     .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
@@ -767,6 +841,29 @@
   </svg>
 </button>
 
+<div id="chat" class="chat">
+  <button id="chatLauncher" class="chat__launcher" type="button" aria-expanded="false" aria-controls="chatPanel" aria-label="Open the questions panel" data-i18n-attr="aria-label:chat.launch">
+    <svg class="chat__icon chat__icon--open" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 20.5l1.4-5.6A8.5 8.5 0 1 1 21 11.5z"></path>
+    </svg>
+    <svg class="chat__icon chat__icon--close" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" hidden>
+      <path d="M6 6l12 12M18 6L6 18"></path>
+    </svg>
+  </button>
+  <section id="chatPanel" class="chat__panel" role="dialog" aria-modal="false" aria-labelledby="chatTitle" hidden>
+    <header class="chat__head">
+      <h2 id="chatTitle" class="chat__title" data-i18n="chat.title">Have a question?</h2>
+      <button id="chatClose" class="chat__x" type="button" aria-label="Close" data-i18n-attr="aria-label:chat.close">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+          <path d="M6 6l12 12M18 6L6 18"></path>
+        </svg>
+      </button>
+    </header>
+    <div id="chatLog" class="chat__log" tabindex="-1"></div>
+    <p class="chat__disc" data-i18n="chat.disclaimer">Automated FAQ, not medical advice. Medical questions are answered by Amedsi's clinical staff.</p>
+  </section>
+</div>
+
 <script>
 (function(){
   "use strict";
@@ -788,6 +885,29 @@
       "nav.contact": "Consultation",
       "nav.cta": "Request a consultation",
       "toTop.label": "Back to top",
+      "chat.launch": "Open the questions panel",
+      "chat.title": "Have a question?",
+      "chat.close": "Close",
+      "chat.greeting": "Choose a question below. For anything medical, Amedsi's clinical staff follow up after you get in touch.",
+      "chat.askAnother": "Ask another question",
+      "chat.toContact": "Go to the contact form",
+      "chat.disclaimer": "Automated FAQ, not medical advice. Medical questions are answered by Amedsi's clinical staff.",
+      "faq.q1": "Is the procedure really done in one day?",
+      "faq.a1": "Yes. The fat is harvested, prepared on site, and injected during a single clinic visit.",
+      "faq.q2": "What kind of anesthesia is used?",
+      "faq.a2": "Local anesthesia only. There is no general anesthesia and no operating room — the visit is outpatient and you stay awake.",
+      "faq.q3": "Where do the cells come from?",
+      "faq.a3": "From your own fat tissue, collected through a small minimally invasive draw — not from a donor or a synthetic product.",
+      "faq.q4": "What do people use it for?",
+      "faq.a4": "Most often for ongoing joint discomfort (knees, shoulders, hips, lower back) and for thinning hair. According to Amedsi, some patients report changes over weeks to months; results vary, are assessed case by case, and are not guaranteed.",
+      "faq.q5": "How is this different from PRP?",
+      "faq.a5": "PRP concentrates platelets and growth factors from your blood. This procedure isolates the cell-rich fraction from your own fat. Both are outpatient, same-day, and use your own tissue.",
+      "faq.q6": "Is this page run by Amedsi?",
+      "faq.a6": "No. It is an independent referral page (Referral Code 202509100), not affiliated with or operated by Amedsi Stem Cells Clinics, and not a medical provider. All medical information comes from Amedsi's clinical staff.",
+      "faq.q7": "Where is the procedure done?",
+      "faq.a7": "In Miami, Florida, at Amedsi Stem Cells Clinics.",
+      "faq.q8": "Who oversees the clinical team?",
+      "faq.a8": "According to Amedsi, its clinical team trained under Dr. Hans Werner.",
       "pill.referredBy": "Referred by",
       "hero.eyebrow": "Miami · Outpatient · Local anesthesia only",
       "hero.headline": "A same-day stem cell procedure in Miami, using your own fat — with local anesthesia only.",
@@ -885,6 +1005,29 @@
       "nav.contact": "Consulta",
       "nav.cta": "Solicitar una consulta",
       "toTop.label": "Volver arriba",
+      "chat.launch": "Abrir el panel de preguntas",
+      "chat.title": "¿Tienes una pregunta?",
+      "chat.close": "Cerrar",
+      "chat.greeting": "Elige una pregunta abajo. Para cualquier tema médico, el personal clínico de Amedsi te contactará después de que escribas.",
+      "chat.askAnother": "Hacer otra pregunta",
+      "chat.toContact": "Ir al formulario de contacto",
+      "chat.disclaimer": "Preguntas frecuentes automatizadas; no son consejo médico. El personal clínico de Amedsi responde las preguntas médicas.",
+      "faq.q1": "¿De verdad se hace todo en un día?",
+      "faq.a1": "Sí. La grasa se extrae, se prepara en la clínica y se inyecta en una sola visita.",
+      "faq.q2": "¿Qué tipo de anestesia se usa?",
+      "faq.a2": "Solo anestesia local. No hay anestesia general ni quirófano: la visita es ambulatoria y permaneces despierto.",
+      "faq.q3": "¿De dónde salen las células?",
+      "faq.a3": "De tu propio tejido graso, obtenido mediante una pequeña extracción mínimamente invasiva; no de un donante ni de un producto sintético.",
+      "faq.q4": "¿Para qué lo usa la gente?",
+      "faq.a4": "Sobre todo para el dolor articular persistente (rodillas, hombros, caderas, zona lumbar) y para el cabello debilitado. Según Amedsi, algunos pacientes refieren cambios a lo largo de semanas o meses; los resultados varían, se valoran caso por caso y no están garantizados.",
+      "faq.q5": "¿En qué se diferencia del PRP?",
+      "faq.a5": "El PRP concentra plaquetas y factores de crecimiento de tu sangre. Este procedimiento aísla la fracción rica en células de tu propia grasa. Ambos son ambulatorios, el mismo día y usan tu propio tejido.",
+      "faq.q6": "¿Esta página la gestiona Amedsi?",
+      "faq.a6": "No. Es una página de referencia independiente (Código de referencia 202509100), sin afiliación con Amedsi Stem Cells Clinics ni operada por dicha clínica, y no es un proveedor médico. Toda la información médica procede del personal clínico de Amedsi.",
+      "faq.q7": "¿Dónde se realiza el procedimiento?",
+      "faq.a7": "En Miami, Florida, en Amedsi Stem Cells Clinics.",
+      "faq.q8": "¿Quién supervisa al equipo clínico?",
+      "faq.a8": "Según Amedsi, su equipo clínico se formó con el Dr. Hans Werner.",
       "pill.referredBy": "Referido por",
       "hero.eyebrow": "Miami · Ambulatorio · Solo anestesia local",
       "hero.headline": "Un procedimiento con células madre el mismo día en Miami, con tu propia grasa y solo anestesia local.",
@@ -1370,6 +1513,132 @@
     update();
   }
 
+  /* ---------------- FAQ chat ---------------- */
+  function wireChat(){
+    var launcher = document.getElementById("chatLauncher");
+    var panel = document.getElementById("chatPanel");
+    var closeBtn = document.getElementById("chatClose");
+    var log = document.getElementById("chatLog");
+    if (!launcher || !panel || !closeBtn || !log) return;
+
+    var FAQ = [
+      { q: "faq.q1", a: "faq.a1" },
+      { q: "faq.q2", a: "faq.a2" },
+      { q: "faq.q3", a: "faq.a3" },
+      { q: "faq.q4", a: "faq.a4" },
+      { q: "faq.q5", a: "faq.a5" },
+      { q: "faq.q6", a: "faq.a6" },
+      { q: "faq.q7", a: "faq.a7" },
+      { q: "faq.q8", a: "faq.a8" }
+    ];
+    var built = false;
+
+    function dict(){ return STRINGS[document.documentElement.lang] || STRINGS.en; }
+
+    function bubble(kind, key){
+      var row = document.createElement("div");
+      row.className = "chat__msg chat__msg--" + kind;
+      var p = document.createElement("p");
+      p.className = "chat__bubble";
+      p.setAttribute("data-i18n", key);
+      p.textContent = dict()[key] || "";
+      row.appendChild(p);
+      return row;
+    }
+
+    function renderChips(){
+      var wrap = document.createElement("div");
+      wrap.className = "chat__chips";
+      FAQ.forEach(function(item){
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "chat__chip";
+        btn.setAttribute("data-i18n", item.q);
+        btn.textContent = dict()[item.q];
+        btn.addEventListener("click", function(){ answer(item); });
+        wrap.appendChild(btn);
+      });
+
+      var actions = document.createElement("div");
+      actions.className = "chat__actions";
+
+      var toContact = document.createElement("a");
+      toContact.className = "chat__action";
+      toContact.href = "#contact";
+      toContact.setAttribute("data-i18n", "chat.toContact");
+      toContact.textContent = dict()["chat.toContact"];
+      toContact.addEventListener("click", closeChat);
+
+      var toCall = document.createElement("a");
+      toCall.className = "chat__action chat__action--ghost";
+      toCall.href = "tel:+14105071203";
+      toCall.setAttribute("data-i18n", "call.cta");
+      toCall.textContent = dict()["call.cta"];
+
+      actions.appendChild(toContact);
+      actions.appendChild(toCall);
+      wrap.appendChild(actions);
+
+      log.appendChild(wrap);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    function answer(item){
+      var groups = log.querySelectorAll(".chat__chips");
+      for (var i = 0; i < groups.length; i++) groups[i].remove();
+
+      log.appendChild(bubble("user", item.q));
+      log.appendChild(bubble("bot", item.a));
+
+      var again = document.createElement("p");
+      again.className = "chat__again";
+      again.setAttribute("data-i18n", "chat.askAnother");
+      again.textContent = dict()["chat.askAnother"];
+      log.appendChild(again);
+
+      renderChips();
+    }
+
+    function build(){
+      if (built) return;
+      built = true;
+      log.appendChild(bubble("bot", "chat.greeting"));
+      renderChips();
+    }
+
+    function toggleIcons(open){
+      var oi = launcher.querySelector(".chat__icon--open");
+      var ci = launcher.querySelector(".chat__icon--close");
+      if (oi) oi.hidden = open;
+      if (ci) ci.hidden = !open;
+    }
+
+    function openChat(){
+      build();
+      panel.hidden = false;
+      launcher.setAttribute("aria-expanded", "true");
+      document.body.classList.add("chat-open");
+      toggleIcons(true);
+      log.focus();
+    }
+
+    function closeChat(){
+      panel.hidden = true;
+      launcher.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("chat-open");
+      toggleIcons(false);
+      launcher.focus();
+    }
+
+    launcher.addEventListener("click", function(){
+      if (panel.hidden) openChat(); else closeChat();
+    });
+    closeBtn.addEventListener("click", closeChat);
+    document.addEventListener("keydown", function(e){
+      if (e.key === "Escape" && !panel.hidden) closeChat();
+    });
+  }
+
   function fallbackCopy(text){
     var ta = document.createElement("textarea");
     ta.value = text;
@@ -1415,6 +1684,7 @@
   setupReveal();
   loadNews();
   wireToTop();
+  wireChat();
 })();
 </script>
 </body>
