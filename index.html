@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Same-Day Stem Cell Procedure in Miami — Independent Referral</title>
-<meta name="description" content="Independent referral page for a same-day, own-fat (autologous) stem cell procedure in Miami, performed under local anesthesia only with no operating room. Not a medical provider; clinical information comes from Amedsi Stem Cells Clinics.">
+<meta name="description" content="Independent referral page for a same-day, own-fat (autologous) stem cell procedure in Miami, performed under local anesthesia only with no operating room. Not a medical provider; clinical information comes from Amedsi Stem Cells Clinics. Also carries a regularly updated feed of stem cell research news headlines.">
 
 <!-- Replace SET-YOUR-DOMAIN.example with the real deployed domain. These are also
      rewritten to the live origin at runtime by applySiteUrl() in the script below. -->
@@ -12,19 +12,19 @@
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="author" content="Same-Day Stem Cells · Miami — Independent Referral (Referral Code 202509100)">
-<meta name="keywords" content="same-day stem cell procedure Miami, autologous fat stem cells, adipose-derived stem cells, local anesthesia only, no operating room, outpatient stem cell injection, joint pain, knee pain, hair thinning, stem cells vs PRP, Amedsi Stem Cells Clinics referral">
+<meta name="keywords" content="same-day stem cell procedure Miami, autologous fat stem cells, adipose-derived stem cells, local anesthesia only, no operating room, outpatient stem cell injection, joint pain, knee pain, hair thinning, stem cells vs PRP, Amedsi Stem Cells Clinics referral, stem cell news, stem cell research news, latest stem cell research headlines">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Same-Day Stem Cells · Miami">
 <meta property="og:title" content="Same-Day Stem Cell Procedure in Miami — Independent Referral">
-<meta property="og:description" content="A same-day, own-fat (autologous) stem cell procedure in Miami under local anesthesia only — no operating room. Independent referral for Amedsi Stem Cells Clinics; not a medical provider.">
+<meta property="og:description" content="A same-day, own-fat (autologous) stem cell procedure in Miami under local anesthesia only — no operating room. Independent referral for Amedsi Stem Cells Clinics; not a medical provider. Plus a regularly updated stem cell research news feed.">
 <meta property="og:url" content="https://SET-YOUR-DOMAIN.example/">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Same-Day Stem Cell Procedure in Miami — Independent Referral">
-<meta name="twitter:description" content="Same-day, own-fat stem cell procedure in Miami, local anesthesia only. Independent referral for Amedsi Stem Cells Clinics — not a medical provider.">
+<meta name="twitter:description" content="Same-day, own-fat stem cell procedure in Miami, local anesthesia only. Independent referral for Amedsi Stem Cells Clinics — not a medical provider. Plus a stem cell research news feed.">
 <meta name="twitter:url" content="https://SET-YOUR-DOMAIN.example/">
 
 <script type="application/ld+json" id="ld-json">
@@ -67,7 +67,15 @@
       "publisher": { "@id": "https://SET-YOUR-DOMAIN.example/#referrer" },
       "inLanguage": "en",
       "about": "Same-day autologous (own-fat) stem cell procedure offered by Amedsi Stem Cells Clinics in Miami, performed under local anesthesia only with no operating room.",
-      "mainEntity": { "@id": "https://SET-YOUR-DOMAIN.example/#faq" }
+      "keywords": "same-day stem cell procedure, autologous fat stem cells, local anesthesia only, joint pain, hair thinning, stem cells vs PRP, stem cell research news",
+      "mainEntity": { "@id": "https://SET-YOUR-DOMAIN.example/#faq" },
+      "hasPart": {
+        "@type": "WebPageElement",
+        "@id": "https://SET-YOUR-DOMAIN.example/#news-feed",
+        "name": "Stem cell research news",
+        "description": "A regularly updated list of recent stem cell research headlines, linked from ScienceDaily.",
+        "isAccessibleForFree": true
+      }
     },
     {
       "@type": "FAQPage",
@@ -399,6 +407,22 @@
   }
   .footer p{ font-size:13px; color:var(--teal); max-width:72ch; margin:0; }
 
+  /* ---------- Back to top ---------- */
+  .to-top{
+    position:fixed; right:22px; bottom:22px; z-index:60;
+    width:46px; height:46px; display:grid; place-items:center;
+    border-radius:50%; cursor:pointer;
+    color:#fff; border:1px solid rgba(207,159,63,0.6);
+    background:linear-gradient(135deg, #163a5c 0%, #24507a 100%);
+    box-shadow:0 12px 26px -10px rgba(16,38,60,0.6);
+    opacity:0; transform:translateY(10px); pointer-events:none;
+    transition:opacity .25s ease, transform .25s ease, filter .15s ease;
+  }
+  .to-top.is-visible{ opacity:1; transform:none; pointer-events:auto; }
+  .to-top:hover{ filter:brightness(1.12); transform:translateY(-2px); }
+  .to-top svg{ width:20px; height:20px; display:block; }
+  @media (max-width:520px){ .to-top{ right:16px; bottom:16px; } }
+
   /* ---------- Responsive ---------- */
   @media (max-width: 860px){
     .hero__inner{ grid-template-columns:1fr; gap:36px; }
@@ -462,6 +486,8 @@
     .step, .why__grid li, .callout,
     .compare tbody tr{ transition:none; }
     .btn:hover, .step:hover, .why__grid li:hover, .callout:hover{ transform:none; }
+    .to-top{ transition:opacity .001s linear; }
+    .to-top.is-visible, .to-top:hover{ transform:none; }
     #cellMotif, #cellMotif circle, .cell-line{ animation:none !important; }
     .cell-line{ display:none !important; }
     .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
@@ -718,7 +744,7 @@
   <section id="news-feed" class="section news" hidden>
     <div class="container">
       <h2 class="news__title" data-i18n="news.feedTitle">Stem cell research news</h2>
-      <p class="lead" data-i18n="news.feedIntro">Recent headlines from ScienceDaily, an independent science-news publisher. Provided for general interest — not affiliated with this page or with Amedsi Stem Cells Clinics, and not an endorsement of any treatment.</p>
+      <p class="lead" data-i18n="news.feedIntro">A regularly updated list of recent stem cell research headlines from ScienceDaily, an independent science-news publisher. Provided for general interest — not affiliated with this page or with Amedsi Stem Cells Clinics, and not an endorsement of any treatment.</p>
       <ul id="newsFeedList" class="news__list"></ul>
       <p class="news__source">
         <span data-i18n="news.feedSource">Source</span>:
@@ -734,6 +760,12 @@
     <p data-i18n="footer.text">Referral Code 202509100 · Independent referral page, not affiliated with or operated by Amedsi Stem Cells Clinics. All clinical claims sourced from amedsistemcellsclinics.com.</p>
   </div>
 </footer>
+
+<button id="toTop" class="to-top" type="button" aria-label="Back to top" data-i18n-attr="aria-label:toTop.label">
+  <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 19V6M6 12l6-6 6 6"></path>
+  </svg>
+</button>
 
 <script>
 (function(){
@@ -755,6 +787,7 @@
       "nav.news": "News",
       "nav.contact": "Consultation",
       "nav.cta": "Request a consultation",
+      "toTop.label": "Back to top",
       "pill.referredBy": "Referred by",
       "hero.eyebrow": "Miami · Outpatient · Local anesthesia only",
       "hero.headline": "A same-day stem cell procedure in Miami, using your own fat — with local anesthesia only.",
@@ -833,7 +866,7 @@
       "news.success": "You're on the list — thank you for your interest.",
       "news.error": "Something went wrong. Please try again.",
       "news.feedTitle": "Stem cell research news",
-      "news.feedIntro": "Recent headlines from ScienceDaily, an independent science-news publisher. Provided for general interest — not affiliated with this page or with Amedsi Stem Cells Clinics, and not an endorsement of any treatment.",
+      "news.feedIntro": "A regularly updated list of recent stem cell research headlines from ScienceDaily, an independent science-news publisher. Provided for general interest — not affiliated with this page or with Amedsi Stem Cells Clinics, and not an endorsement of any treatment.",
       "news.feedSource": "Source",
       "footer.text": "Referral Code 202509100 · Independent referral page, not affiliated with or operated by Amedsi Stem Cells Clinics. All clinical claims sourced from amedsistemcellsclinics.com."
     },
@@ -851,6 +884,7 @@
       "nav.news": "Noticias",
       "nav.contact": "Consulta",
       "nav.cta": "Solicitar una consulta",
+      "toTop.label": "Volver arriba",
       "pill.referredBy": "Referido por",
       "hero.eyebrow": "Miami · Ambulatorio · Solo anestesia local",
       "hero.headline": "Un procedimiento con células madre el mismo día en Miami, con tu propia grasa y solo anestesia local.",
@@ -929,7 +963,7 @@
       "news.success": "Ya estás en la lista: gracias por tu interés.",
       "news.error": "Hubo un problema. Vuelve a intentarlo.",
       "news.feedTitle": "Noticias de investigación con células madre",
-      "news.feedIntro": "Titulares recientes de ScienceDaily, un medio independiente de divulgación científica. Se ofrecen a título informativo; no están afiliados a esta página ni a Amedsi Stem Cells Clinics, y no constituyen un respaldo de ningún tratamiento.",
+      "news.feedIntro": "Una lista de titulares recientes de investigación con células madre, actualizada con regularidad, procedente de ScienceDaily, un medio independiente de divulgación científica. Se ofrece a título informativo; no está afiliada a esta página ni a Amedsi Stem Cells Clinics, y no constituye un respaldo de ningún tratamiento.",
       "news.feedSource": "Fuente",
       "footer.text": "Código de referencia 202509100 · Página de referencia independiente, sin afiliación con Amedsi Stem Cells Clinics ni operada por dicha clínica. Toda afirmación clínica procede de amedsistemcellsclinics.com."
     }
@@ -1255,6 +1289,7 @@
         } catch (e) { fmt = null; }
 
         var frag = document.createDocumentFragment();
+        var listItems = [];
         data.items.slice(0, 5).forEach(function(it){
           if (!it || !it.title || !/^https?:\/\//i.test(it.link || "")) return;
           var li = document.createElement("li");
@@ -1275,13 +1310,64 @@
             li.appendChild(meta);
           }
           frag.appendChild(li);
+
+          var listItem = { "@type": "ListItem", "position": listItems.length + 1, "url": it.link, "name": it.title };
+          if (d && !isNaN(d.getTime())) listItem.datePublished = d.toISOString().slice(0, 10);
+          listItems.push(listItem);
         });
 
         if (!frag.childNodes.length) return;
         list.appendChild(frag);
         section.hidden = false;
+        publishNewsListSchema(listItems, data);
       })
       .catch(function(){ /* feed unavailable — section stays hidden */ });
+  }
+
+  // Machine-readable list of the current headlines so AI/search crawlers can
+  // see that this page carries a maintained stem cell research news list.
+  function publishNewsListSchema(listItems, data){
+    if (!listItems || !listItems.length) return;
+    var pageUrl = (location.origin && location.origin !== "null")
+      ? (location.origin + location.pathname).replace(/index\.html$/, "")
+      : "";
+    var schema = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Recent stem cell research headlines (via ScienceDaily)",
+      "description": "Recently published stem cell research headlines, linked from ScienceDaily and listed on this page for general interest. Refreshed automatically.",
+      "itemListOrder": "https://schema.org/ItemListOrderDescending",
+      "numberOfItems": listItems.length,
+      "itemListElement": listItems
+    };
+    if (pageUrl) schema["@id"] = pageUrl + "#news-list";
+    if (data && data.updated) schema.dateModified = data.updated;
+    var prev = document.getElementById("news-list-ld");
+    if (prev) prev.remove();
+    var el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.id = "news-list-ld";
+    el.textContent = JSON.stringify(schema);
+    document.head.appendChild(el);
+  }
+
+  /* ---------------- Back to top ---------------- */
+  function wireToTop(){
+    var btn = document.getElementById("toTop");
+    if (!btn) return;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var queued = false;
+    function update(){
+      queued = false;
+      btn.classList.toggle("is-visible", (window.pageYOffset || document.documentElement.scrollTop) > 600);
+    }
+    window.addEventListener("scroll", function(){
+      if (!queued){ queued = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    btn.addEventListener("click", function(){
+      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+    });
+    update();
   }
 
   function fallbackCopy(text){
@@ -1328,6 +1414,7 @@
   wireShare();
   setupReveal();
   loadNews();
+  wireToTop();
 })();
 </script>
 </body>
