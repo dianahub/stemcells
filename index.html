@@ -9,20 +9,24 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  /* Deep navy + gold on warm off-white */
   :root{
-    --ink:#153a33;
-    --sage:#eef5e5;
-    --sage-deep:#dbe9cb;
-    --teal:#1d6459;
-    --teal-soft:#36725f;
-    --coral:#f06a34;
-    --coral-soft:#f9ccb8;
-    --paper:#fdfcf6;
-    --line: rgba(22,48,44,0.14);
+    --ink:#1b2a3a;
+    --sage:#e9edf4;
+    --sage-deep:#d6e0ec;
+    --teal:#14304d;
+    --teal-soft:#3f5a78;
+    --coral:#8f6410;
+    --coral-soft:#ecd9ae;
+    --gold:#cf9f3f;
+    --paper:#faf8f3;
+    --line: rgba(20,48,77,0.16);
     --maxw: 1080px;
   }
 
   *,*::before,*::after{ box-sizing:border-box; }
+
+  [hidden]{ display:none !important; }
 
   html{ scroll-behavior:smooth; }
 
@@ -68,31 +72,31 @@
   /* ---------- Top bar ---------- */
   .topbar{
     position:sticky; top:0; z-index:50;
-    background:rgba(250,249,245,0.92);
-    backdrop-filter:saturate(1.1) blur(8px);
-    -webkit-backdrop-filter:saturate(1.1) blur(8px);
-    border-bottom:1px solid var(--line);
+    background:linear-gradient(115deg, #10263c 0%, #1c3f63 55%, #2b5f8c 100%);
+    border-bottom:1px solid rgba(207,159,63,0.5);
+    box-shadow: 0 10px 30px -14px rgba(16,38,60,0.65);
   }
   .topbar__inner{
     display:flex; align-items:center; justify-content:space-between;
     gap:16px; min-height:60px;
   }
-  .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink); }
+  .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; color:#fff; }
   .brand__mark{ width:26px; height:26px; flex:0 0 auto; }
   .brand__name{ font-family:'Fraunces',serif; font-weight:500; font-size:1.05rem; letter-spacing:-0.01em; }
   .topbar__right{ display:flex; align-items:center; gap:14px; }
   .topbar__phone{
     display:flex; flex-direction:column; align-items:flex-end; line-height:1.15;
-    text-decoration:none; color:var(--ink);
+    text-decoration:none; color:#fff;
   }
-  .topbar__phoneLabel{ font-size:11px; text-transform:uppercase; letter-spacing:.12em; color:var(--teal-soft); }
+  .topbar__phoneLabel{ font-size:11px; text-transform:uppercase; letter-spacing:.12em; color:rgba(255,255,255,0.72); }
   .topbar__phoneNum{ font-size:14px; font-variant-numeric:tabular-nums; }
   .langToggle{
-    border:1px solid var(--line); background:var(--paper); color:var(--ink);
+    border:1px solid rgba(255,255,255,0.42); background:rgba(255,255,255,0.10); color:#fff;
     font:inherit; font-size:13px; font-weight:500; letter-spacing:.06em;
     padding:7px 13px; border-radius:999px; cursor:pointer;
+    transition: background-color .15s ease, border-color .15s ease;
   }
-  .langToggle:hover{ border-color:var(--teal-soft); }
+  .langToggle:hover{ border-color:#fff; background:rgba(255,255,255,0.20); }
 
   .nav{
     display:flex; gap:22px; align-items:center;
@@ -100,23 +104,29 @@
     overflow-x:auto; scrollbar-width:none;
   }
   .nav::-webkit-scrollbar{ display:none; }
-  .nav a{ white-space:nowrap; text-decoration:none; color:var(--teal-soft); font-size:14px; font-weight:500; }
-  .nav a:hover{ color:var(--ink); }
-  .nav__cta{ margin-left:auto; color:var(--coral); }
+  .nav a{ white-space:nowrap; text-decoration:none; color:rgba(255,255,255,0.82); font-size:14px; font-weight:500; transition:color .15s ease; }
+  .nav a:hover{ color:#fff; }
+  .nav__cta{ margin-left:auto; color:var(--gold); font-weight:600; }
+  .nav__cta:hover{ color:#f0d69a; }
 
   /* ---------- Buttons ---------- */
   .btn{
     display:inline-block; font:inherit; font-weight:500; font-size:15px; line-height:1;
     padding:15px 26px; border-radius:6px; text-decoration:none; cursor:pointer;
     border:1px solid transparent;
-    transition:filter .15s ease, background-color .15s ease, color .15s ease;
+    transition: transform .15s ease, filter .15s ease, box-shadow .15s ease, background-color .15s ease, color .15s ease;
   }
-  .btn--primary{ background:var(--coral); color:#fff; border-color:var(--coral); }
-  .btn--primary:hover{ filter:brightness(0.94); }
+  .btn--primary{
+    background:linear-gradient(135deg, #9c6f16 0%, #7c540c 100%);
+    color:#fff; border-color:#6f4a0a;
+    box-shadow: 0 12px 24px -10px rgba(143,100,16,0.6);
+  }
+  .btn--primary:hover{ filter:brightness(1.1); transform:translateY(-2px); box-shadow: 0 20px 34px -12px rgba(143,100,16,0.7); }
   .btn--ghost{ background:transparent; color:var(--ink); border-color:var(--line); }
-  .btn--ghost:hover{ border-color:var(--teal-soft); }
+  .btn--ghost:hover{ border-color:var(--teal-soft); transform:translateY(-2px); }
   .btn--teal{ background:transparent; color:var(--teal); border-color:var(--teal); }
-  .btn--teal:hover{ background:var(--teal); color:#fff; }
+  .btn--teal:hover{ background:var(--teal); color:#fff; transform:translateY(-2px); }
+  .btn:active{ transform:translateY(0); }
 
   /* ---------- Sections ---------- */
   .section{ padding:84px 0; border-top:1px solid var(--line); }
@@ -131,13 +141,16 @@
   }
 
   /* ---------- Hero ---------- */
-  .hero{ padding:66px 0 84px; }
+  .hero{
+    padding:66px 0 84px;
+    background: linear-gradient(180deg, #ffffff 0%, var(--paper) 42%, #eef1f6 100%);
+  }
   .hero__inner{
     display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center;
   }
   .eyebrow{
     font-size:12px; text-transform:uppercase; letter-spacing:.16em;
-    color:var(--teal-soft); margin-bottom:14px;
+    color:var(--coral); margin-bottom:14px;
   }
   .hero__sub{ max-width:52ch; font-size:1.08rem; }
   .hero__actions{ display:flex; flex-wrap:wrap; gap:14px; margin:26px 0 22px; }
@@ -164,7 +177,7 @@
   }
   .step__n{
     font-family:'Fraunces',serif; font-size:1.9rem; font-weight:500;
-    color:var(--coral); line-height:1; margin-bottom:12px;
+    color:var(--gold); line-height:1; margin-bottom:12px;
   }
   .step p{ margin:0; font-size:15px; }
 
@@ -180,7 +193,7 @@
   .why__grid h3{ margin-bottom:6px; display:flex; align-items:center; gap:10px; }
   .why__grid h3::before{
     content:""; width:9px; height:9px; border-radius:50%;
-    background:var(--coral); flex:0 0 auto;
+    background:var(--gold); flex:0 0 auto;
   }
   .why__grid p{ margin:0; font-size:15px; color:var(--teal-soft); }
 
@@ -200,6 +213,8 @@
   }
   .compare tbody th{ font-weight:600; color:var(--teal); width:24%; }
   .compare tbody tr:last-child th, .compare tbody tr:last-child td{ border-bottom:none; }
+  .compare tbody tr{ transition: background-color .15s ease; }
+  .compare tbody tr:hover{ background:var(--sage); }
 
   /* ---------- Contact ---------- */
   .contact__grid{
@@ -250,7 +265,7 @@
     background:var(--sage-deep); border-top:1px solid var(--line);
     padding:40px 0;
   }
-  .footer p{ font-size:13px; color:var(--teal-soft); max-width:72ch; margin:0; }
+  .footer p{ font-size:13px; color:var(--teal); max-width:72ch; margin:0; }
 
   /* ---------- Responsive ---------- */
   @media (max-width: 860px){
@@ -265,9 +280,59 @@
     .section{ padding:60px 0; }
   }
 
+  /* ---------- Motion ---------- */
+  #cellMotif{ display:block; }
+  #cellMotif circle{
+    transform-box: fill-box;
+    transform-origin: center;
+    transition: r .18s ease;
+    animation: cellDrift var(--dur, 7s) ease-in-out var(--delay, 0s) infinite alternate;
+  }
+  #cellMotif circle.is-accent{
+    animation:
+      cellDrift var(--dur, 7s) ease-in-out var(--delay, 0s) infinite alternate,
+      cellGlow 3.6s ease-in-out var(--delay, 0s) infinite;
+  }
+  .cell-line{
+    stroke: var(--gold);
+    stroke-linecap: round;
+    stroke-dasharray: 3 5;
+    pointer-events: none;
+    transition: opacity .25s ease;
+    animation: lineFlow .7s linear infinite;
+  }
+  @keyframes lineFlow{ to{ stroke-dashoffset: -16; } }
+  @keyframes cellDrift{
+    from{ transform: translate(0,0) scale(1); }
+    to{ transform: translate(var(--dx, 3px), var(--dy, -3px)) scale(var(--sc, 1.1)); }
+  }
+  @keyframes cellGlow{
+    0%,100%{ opacity:.82; }
+    50%{ opacity:1; }
+  }
+
+  .step, .why__grid li, .callout{
+    box-shadow: 0 3px 10px -5px rgba(20,48,77,0.16);
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  }
+  .step:hover, .why__grid li:hover, .callout:hover{
+    transform: translateY(-7px);
+    box-shadow: 0 30px 55px -20px rgba(20,48,77,0.42), 0 10px 22px -14px rgba(20,48,77,0.28);
+    border-color: rgba(20,48,77,0.30);
+  }
+
+  .reveal{ opacity:0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.is-visible{ opacity:1; transform:none; }
+
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
-    .btn{ transition:none; }
+    .btn,
+    .step, .why__grid li, .callout,
+    .compare tbody tr{ transition:none; }
+    .btn:hover, .step:hover, .why__grid li:hover, .callout:hover{ transform:none; }
+    #cellMotif, #cellMotif circle, .cell-line{ animation:none !important; }
+    .cell-line{ display:none !important; }
+    .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
   }
 </style>
 </head>
@@ -277,19 +342,18 @@
 
 <header class="topbar">
   <div class="topbar__inner container">
-    <a class="brand" href="#top" aria-label="Same-Day Cell Referral — home">
+    <a class="brand" href="#top" aria-label="Same-Day Stem Cells, Miami — home">
       <svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="7" cy="13" r="3.4" style="fill:var(--teal)"></circle>
-        <circle cx="15.5" cy="8" r="2.6" style="fill:var(--coral)"></circle>
-        <circle cx="16.5" cy="16" r="2" style="fill:var(--teal-soft)"></circle>
+        <circle cx="7" cy="13" r="3.4" style="fill:#ffffff"></circle>
+        <circle cx="15.5" cy="8" r="2.6" style="fill:var(--gold)"></circle>
+        <circle cx="16.5" cy="16" r="2" style="fill:rgba(255,255,255,0.55)"></circle>
       </svg>
-      <span class="brand__name" data-i18n="brand.name">Same-Day Cell Referral</span>
+      <span class="brand__name" data-i18n="brand.name">Same-Day Stem Cells · Miami</span>
     </a>
     <div class="topbar__right">
-      <!-- Placeholder referral line — replace with the real forwarding number -->
-      <a class="topbar__phone" href="tel:+13055550100">
+      <a class="topbar__phone" href="tel:+14105071203">
         <span class="topbar__phoneLabel" data-i18n="topbar.phoneLabel">Referral line</span>
-        <span class="topbar__phoneNum">+1 (305) 555-0100</span>
+        <span class="topbar__phoneNum">+1 (410) 507-1203</span>
       </a>
       <button id="langToggle" class="langToggle" type="button" aria-label="Cambiar el idioma a español">
         <span id="langToggleLabel">ES</span>
@@ -490,9 +554,8 @@
             <span id="shareStatus" class="shareStatus" role="status" aria-live="polite" hidden data-i18n="share.copied">Link copied to clipboard</span>
           </div>
           <div class="callout">
-            <h3 data-i18n="call.title">Prefer to call the clinic yourself?</h3>
-            <!-- Placeholder — replace with Amedsi's published phone number. No ref tracking on this line. -->
-            <a class="btn btn--teal" href="tel:+13055550142" data-i18n="call.cta">Call Amedsi directly</a>
+            <h3 data-i18n="call.title">Prefer to talk it through?</h3>
+            <a class="btn btn--teal" href="tel:+14105071203" data-i18n="call.cta">Call</a>
           </div>
         </aside>
       </div>
@@ -535,7 +598,7 @@
     en: {
       "doc.title": "Same-Day Stem Cell Procedure in Miami — Independent Referral",
       "skip.link": "Skip to main content",
-      "brand.name": "Same-Day Cell Referral",
+      "brand.name": "Same-Day Stem Cells · Miami",
       "topbar.phoneLabel": "Referral line",
       "nav.aria": "Section navigation",
       "nav.how": "How it works",
@@ -613,8 +676,8 @@
       "contact.privacy": "Your contact details are used only to pass this referral along and to follow up about it.",
       "share.button": "Copy link to share",
       "share.copied": "Link copied to clipboard",
-      "call.title": "Prefer to call the clinic yourself?",
-      "call.cta": "Call Amedsi directly",
+      "call.title": "Prefer to talk it through?",
+      "call.cta": "Call",
       "news.title": "Not ready to book?",
       "news.body": "Leave your email and we'll send occasional updates about the same-day procedure. No booking, no obligation.",
       "news.email": "Email address",
@@ -627,7 +690,7 @@
     es: {
       "doc.title": "Procedimiento con células madre el mismo día en Miami — Referencia independiente",
       "skip.link": "Saltar al contenido principal",
-      "brand.name": "Referencia · Células el mismo día",
+      "brand.name": "Células madre el mismo día · Miami",
       "topbar.phoneLabel": "Línea de referencia",
       "nav.aria": "Navegación de secciones",
       "nav.how": "Cómo funciona",
@@ -705,8 +768,8 @@
       "contact.privacy": "Tus datos de contacto se usan únicamente para transmitir esta referencia y dar seguimiento.",
       "share.button": "Copiar enlace para compartir",
       "share.copied": "Enlace copiado al portapapeles",
-      "call.title": "¿Prefieres llamar tú a la clínica?",
-      "call.cta": "Llamar directamente a Amedsi",
+      "call.title": "¿Prefieres hablarlo por teléfono?",
+      "call.cta": "Llamar",
       "news.title": "¿Aún no quieres reservar?",
       "news.body": "Déjanos tu correo y te enviaremos novedades ocasionales sobre el procedimiento del mismo día. Sin reservas ni compromiso.",
       "news.email": "Correo electrónico",
@@ -790,10 +853,25 @@
   }
 
   /* ---------------- Cell motif ---------------- */
+  var NS = "http://www.w3.org/2000/svg";
+  var motifDots = [];
+
   function buildMotif(){
     var svg = document.getElementById("cellMotif");
     if (!svg) return;
-    var ns = "http://www.w3.org/2000/svg";
+
+    // transparent layer so the pointer is tracked across the whole motif, not just on dots
+    var capture = document.createElementNS(NS, "rect");
+    capture.setAttribute("x", "0"); capture.setAttribute("y", "0");
+    capture.setAttribute("width", "400"); capture.setAttribute("height", "400");
+    capture.setAttribute("fill", "transparent");
+    capture.style.pointerEvents = "all";
+    svg.insertBefore(capture, svg.firstChild);
+
+    var linesGroup = document.createElementNS(NS, "g");
+    linesGroup.setAttribute("class", "cell-lines");
+    svg.appendChild(linesGroup);
+
     var rings = [0, 40, 78, 116, 152, 184];
     for (var ri = 0; ri < rings.length; ri++){
       var rad = rings[ri];
@@ -802,18 +880,92 @@
         var ang = (i / count) * Math.PI * 2 + ri * 0.4;
         var x = 200 + Math.cos(ang) * rad;
         var y = 200 + Math.sin(ang) * rad;
-        var c = document.createElementNS(ns, "circle");
+        var c = document.createElementNS(NS, "circle");
         c.setAttribute("cx", x.toFixed(1));
         c.setAttribute("cy", y.toFixed(1));
         var r = rad === 0 ? 8 : 5.4 - ri * 0.5;
         if (r < 2) r = 2;
         c.setAttribute("r", r.toFixed(1));
         var accent = (ri === 1 && i === 2) || (ri === 3 && i === 5) || (ri === 5 && i === 12);
-        c.style.fill = accent ? "var(--coral)" : "var(--teal-soft)";
+        c.style.fill = accent ? "var(--gold)" : "var(--teal-soft)";
         c.style.opacity = accent ? "1" : String(Math.max(0.28, 0.85 - ri * 0.12).toFixed(2));
+        c.style.setProperty("--dur", (5 + Math.random() * 6).toFixed(2) + "s");
+        c.style.setProperty("--delay", (-Math.random() * 8).toFixed(2) + "s");
+        c.style.setProperty("--dx", (Math.random() * 9 - 4.5).toFixed(1) + "px");
+        c.style.setProperty("--dy", (Math.random() * 9 - 4.5).toFixed(1) + "px");
+        c.style.setProperty("--sc", (0.82 + Math.random() * 0.4).toFixed(2));
+        if (accent) c.setAttribute("class", "is-accent");
         svg.appendChild(c);
+        motifDots.push({ x: x, y: y, r: parseFloat(r.toFixed(1)), el: c, line: null });
       }
     }
+
+    setupMotifInteraction(svg, linesGroup);
+  }
+
+  function setupMotifInteraction(svg, linesGroup){
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!svg.getScreenCTM) return;
+
+    var RADIUS = 140;
+    var pointer = null;
+    var queued = false;
+
+    for (var i = 0; i < motifDots.length; i++){
+      var ln = document.createElementNS(NS, "line");
+      ln.setAttribute("class", "cell-line");
+      ln.style.opacity = "0";
+      linesGroup.appendChild(ln);
+      motifDots[i].line = ln;
+    }
+
+    function render(){
+      queued = false;
+      for (var i = 0; i < motifDots.length; i++){
+        var d = motifDots[i];
+        if (!pointer){
+          d.line.style.opacity = "0";
+          d.el.setAttribute("r", d.r.toFixed(1));
+          continue;
+        }
+        var dx = d.x - pointer.x, dy = d.y - pointer.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < RADIUS){
+          var t = 1 - dist / RADIUS;
+          d.line.setAttribute("x1", pointer.x.toFixed(1));
+          d.line.setAttribute("y1", pointer.y.toFixed(1));
+          d.line.setAttribute("x2", d.x.toFixed(1));
+          d.line.setAttribute("y2", d.y.toFixed(1));
+          d.line.style.opacity = (t * 0.6).toFixed(3);
+          d.line.style.strokeWidth = (0.4 + t * 1.4).toFixed(2);
+          d.el.setAttribute("r", (d.r * (1 + t * 0.7)).toFixed(1));
+        } else {
+          d.line.style.opacity = "0";
+          d.el.setAttribute("r", d.r.toFixed(1));
+        }
+      }
+    }
+
+    function toSvg(e){
+      var ctm = svg.getScreenCTM();
+      if (!ctm) return null;
+      var pt;
+      if (svg.createSVGPoint){ pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY; }
+      else { pt = new DOMPoint(e.clientX, e.clientY); }
+      return pt.matrixTransform(ctm.inverse());
+    }
+
+    svg.addEventListener("pointermove", function(e){
+      if (e.pointerType === "touch") return;
+      var p = toSvg(e);
+      if (!p) return;
+      pointer = { x: p.x, y: p.y };
+      if (!queued){ queued = true; requestAnimationFrame(render); }
+    });
+    svg.addEventListener("pointerleave", function(){
+      pointer = null;
+      if (!queued){ queued = true; requestAnimationFrame(render); }
+    });
   }
 
   /* ---------------- Forms ---------------- */
@@ -891,6 +1043,28 @@
     });
   }
 
+  /* ---------------- Scroll reveal ---------------- */
+  function setupReveal(){
+    if (!("IntersectionObserver" in window)) return;
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var targets = document.querySelectorAll(
+      ".section h2, .section > .container > p, .steps, .why__grid, .tableWrap, .contact__grid, .form--inline"
+    );
+    if (!targets.length) return;
+    var io = new IntersectionObserver(function(entries){
+      for (var i = 0; i < entries.length; i++){
+        if (entries[i].isIntersecting){
+          entries[i].target.classList.add("is-visible");
+          io.unobserve(entries[i].target);
+        }
+      }
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+    for (var j = 0; j < targets.length; j++){
+      targets[j].classList.add("reveal");
+      io.observe(targets[j]);
+    }
+  }
+
   function fallbackCopy(text){
     var ta = document.createElement("textarea");
     ta.value = text;
@@ -932,6 +1106,7 @@
   wireForm("contactForm", "contactStatus", { sending: "contact.sending", success: "contact.success", error: "contact.error" });
   wireForm("newsForm", "newsStatus", { sending: "news.sending", success: "news.success", error: "news.error" });
   wireShare();
+  setupReveal();
 })();
 </script>
 </body>
