@@ -2,7 +2,7 @@
 // Zero dependencies; run with Node >= 20 (global fetch). Invoked by the GitHub
 // Action in .github/workflows/news.yml on a schedule.
 
-import { writeFileSync } from "node:fs";
+import { writeFileSync, readFileSync, existsSync } from "node:fs";
 
 const FEED = "https://www.sciencedaily.com/rss/health_medicine/stem_cells.xml";
 const MAX_ITEMS = 8;
@@ -54,6 +54,24 @@ if (items.length === 0) {
   process.exit(1);
 }
 
+// Only rewrite the file when the article list itself changes, so an unchanged
+// feed produces no git diff (and no commit / redeploy). The `updated` field
+// therefore reflects the last time the headlines actually changed.
+const nextItems = JSON.stringify(items);
+let prevItems = null;
+if (existsSync("news.json")) {
+  try {
+    prevItems = JSON.stringify(JSON.parse(readFileSync("news.json", "utf8")).items);
+  } catch {
+    prevItems = null;
+  }
+}
+
+if (nextItems === prevItems) {
+  console.log("Article list unchanged — news.json left as-is.");
+  process.exit(0);
+}
+
 const payload = {
   source: "ScienceDaily",
   sourceUrl: "https://www.sciencedaily.com/news/health_medicine/stem_cells/",
@@ -63,4 +81,4 @@ const payload = {
 };
 
 writeFileSync("news.json", JSON.stringify(payload, null, 2) + "\n");
-console.log(`Wrote news.json with ${items.length} items.`);
+console.log(`Wrote news.json with ${items.length} items (article list changed).`);
