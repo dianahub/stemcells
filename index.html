@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Same-Day Stem Cell Procedure in Miami — Independent Referral</title>
+<meta name="description" content="Independent referral page for a same-day, own-fat stem cell procedure in Miami performed under local anesthesia only. Not a medical provider.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16302c;
+    --sage:#eef1e9;
+    --sage-deep:#dfe6d6;
+    --teal:#1f4a45;
+    --teal-soft:#3c6b62;
+    --coral:#e2653a;
+    --coral-soft:#f2c6b4;
+    --paper:#faf9f5;
+    --line: rgba(22,48,44,0.14);
+    --maxw: 1080px;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', Georgia, 'Times New Roman', serif;
+    font-weight:500;
+    letter-spacing:-0.02em;
+    line-height:1.15;
+    margin:0 0 .5em;
+    color:var(--ink);
+  }
+  h1{ font-size:clamp(2rem, 4.6vw, 3.1rem); }
+  h2{ font-size:clamp(1.6rem, 3vw, 2.2rem); }
+  h3{ font-size:1.15rem; letter-spacing:-0.01em; }
+  p{ margin:0 0 1rem; }
+  a{ color:var(--teal); text-underline-offset:2px; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:2px;
+    border-radius:4px;
+  }
+
+  .container{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+
+  .skip{
+    position:absolute; left:-9999px; top:0;
+    background:var(--ink); color:#fff;
+    padding:10px 16px; z-index:100; border-radius:0 0 6px 0;
+  }
+  .skip:focus{ left:0; }
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,249,245,0.92);
+    backdrop-filter:saturate(1.1) blur(8px);
+    -webkit-backdrop-filter:saturate(1.1) blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar__inner{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px; min-height:60px;
+  }
+  .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ink); }
+  .brand__mark{ width:26px; height:26px; flex:0 0 auto; }
+  .brand__name{ font-family:'Fraunces',serif; font-weight:500; font-size:1.05rem; letter-spacing:-0.01em; }
+  .topbar__right{ display:flex; align-items:center; gap:14px; }
+  .topbar__phone{
+    display:flex; flex-direction:column; align-items:flex-end; line-height:1.15;
+    text-decoration:none; color:var(--ink);
+  }
+  .topbar__phoneLabel{ font-size:11px; text-transform:uppercase; letter-spacing:.12em; color:var(--teal-soft); }
+  .topbar__phoneNum{ font-size:14px; font-variant-numeric:tabular-nums; }
+  .langToggle{
+    border:1px solid var(--line); background:var(--paper); color:var(--ink);
+    font:inherit; font-size:13px; font-weight:500; letter-spacing:.06em;
+    padding:7px 13px; border-radius:999px; cursor:pointer;
+  }
+  .langToggle:hover{ border-color:var(--teal-soft); }
+
+  .nav{
+    display:flex; gap:22px; align-items:center;
+    padding-top:10px; padding-bottom:10px;
+    overflow-x:auto; scrollbar-width:none;
+  }
+  .nav::-webkit-scrollbar{ display:none; }
+  .nav a{ white-space:nowrap; text-decoration:none; color:var(--teal-soft); font-size:14px; font-weight:500; }
+  .nav a:hover{ color:var(--ink); }
+  .nav__cta{ margin-left:auto; color:var(--coral); }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-block; font:inherit; font-weight:500; font-size:15px; line-height:1;
+    padding:15px 26px; border-radius:6px; text-decoration:none; cursor:pointer;
+    border:1px solid transparent;
+    transition:filter .15s ease, background-color .15s ease, color .15s ease;
+  }
+  .btn--primary{ background:var(--coral); color:#fff; border-color:var(--coral); }
+  .btn--primary:hover{ filter:brightness(0.94); }
+  .btn--ghost{ background:transparent; color:var(--ink); border-color:var(--line); }
+  .btn--ghost:hover{ border-color:var(--teal-soft); }
+  .btn--teal{ background:transparent; color:var(--teal); border-color:var(--teal); }
+  .btn--teal:hover{ background:var(--teal); color:#fff; }
+
+  /* ---------- Sections ---------- */
+  .section{ padding:84px 0; border-top:1px solid var(--line); }
+  .section--sage{ background:var(--sage); }
+  section[id]{ scroll-margin-top:130px; }
+  .lead{ max-width:60ch; color:var(--teal-soft); }
+  .prose{ max-width:62ch; }
+  .attrib{ color:var(--teal); font-weight:600; }
+  .note{
+    font-size:13px; color:var(--teal-soft); max-width:62ch;
+    border-left:2px solid var(--line); padding-left:14px; margin-top:18px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding:66px 0 84px; }
+  .hero__inner{
+    display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center;
+  }
+  .eyebrow{
+    font-size:12px; text-transform:uppercase; letter-spacing:.16em;
+    color:var(--teal-soft); margin-bottom:14px;
+  }
+  .hero__sub{ max-width:52ch; font-size:1.08rem; }
+  .hero__actions{ display:flex; flex-wrap:wrap; gap:14px; margin:26px 0 22px; }
+  .disclosure{
+    font-size:13px; line-height:1.6; color:var(--teal-soft); max-width:56ch;
+    border-left:2px solid var(--line); padding-left:14px; margin-top:8px;
+  }
+  .hero__art{ display:flex; justify-content:center; }
+  #cellMotif{ width:100%; max-width:380px; height:auto; }
+
+  .pill{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:12px; letter-spacing:.04em; text-transform:uppercase;
+    background:var(--sage-deep); border:1px solid var(--line); color:var(--teal);
+    padding:6px 12px; border-radius:999px; margin-bottom:18px;
+  }
+  #refPillCode{ font-variant-numeric:tabular-nums; letter-spacing:.02em; text-transform:none; }
+
+  /* ---------- How it works ---------- */
+  .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:32px; }
+  .step{
+    background:var(--paper); border:1px solid var(--line);
+    border-radius:10px; padding:28px;
+  }
+  .step__n{
+    font-family:'Fraunces',serif; font-size:1.9rem; font-weight:500;
+    color:var(--coral); line-height:1; margin-bottom:12px;
+  }
+  .step p{ margin:0; font-size:15px; }
+
+  /* ---------- Why grid ---------- */
+  .why__grid{
+    list-style:none; margin:28px 0 0; padding:0;
+    display:grid; grid-template-columns:repeat(2,1fr); gap:22px;
+  }
+  .why__grid li{
+    border:1px solid var(--line); border-radius:10px;
+    padding:22px 24px; background:var(--paper);
+  }
+  .why__grid h3{ margin-bottom:6px; display:flex; align-items:center; gap:10px; }
+  .why__grid h3::before{
+    content:""; width:9px; height:9px; border-radius:50%;
+    background:var(--coral); flex:0 0 auto;
+  }
+  .why__grid p{ margin:0; font-size:15px; color:var(--teal-soft); }
+
+  /* ---------- Comparison table ---------- */
+  .tableWrap{
+    overflow-x:auto; margin-top:28px;
+    border:1px solid var(--line); border-radius:10px;
+  }
+  .compare{ border-collapse:collapse; width:100%; min-width:560px; font-size:15px; }
+  .compare th, .compare td{
+    text-align:left; padding:16px 18px;
+    border-bottom:1px solid var(--line); vertical-align:top;
+  }
+  .compare thead th{
+    background:var(--sage-deep);
+    font-family:'Fraunces',serif; font-weight:500; font-size:15px;
+  }
+  .compare tbody th{ font-weight:600; color:var(--teal); width:24%; }
+  .compare tbody tr:last-child th, .compare tbody tr:last-child td{ border-bottom:none; }
+
+  /* ---------- Contact ---------- */
+  .contact__grid{
+    display:grid; grid-template-columns:1.3fr .7fr; gap:48px;
+    margin-top:32px; align-items:start;
+  }
+  .form .field{ margin-bottom:18px; display:flex; flex-direction:column; gap:6px; }
+  .form label{
+    font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--teal-soft);
+  }
+  .form input, .form textarea{
+    font:inherit; font-size:15px; padding:12px 14px;
+    border:1px solid var(--line); border-radius:6px;
+    background:var(--paper); color:var(--ink); width:100%;
+  }
+  .form input:focus, .form textarea:focus{
+    outline:2px solid var(--teal-soft); outline-offset:1px; border-color:var(--teal-soft);
+  }
+  .form textarea{ resize:vertical; min-height:110px; }
+  .form__status{
+    font-size:14px; padding:12px 14px; border-radius:6px;
+    border:1px solid var(--line); background:var(--sage-deep); margin-top:8px;
+  }
+  .form__status.is-success{ border-left:3px solid var(--teal); color:var(--ink); }
+  .form__status.is-error{ border-left:3px solid var(--coral); background:var(--coral-soft); color:var(--ink); }
+  .form__privacy{ font-size:12px; color:var(--teal-soft); margin-top:12px; }
+
+  .asideActions{ display:flex; flex-direction:column; gap:10px; align-items:flex-start; }
+  .shareStatus{ font-size:13px; color:var(--teal); }
+  .callout{
+    margin-top:26px; border:1px solid var(--line); border-radius:10px;
+    padding:22px; background:var(--paper);
+  }
+  .callout h3{ margin-bottom:12px; font-size:1rem; }
+  .callout p{ font-size:13px; color:var(--teal-soft); margin:12px 0 0; }
+
+  /* ---------- Newsletter ---------- */
+  .form--inline{
+    display:flex; flex-wrap:wrap; gap:14px; align-items:flex-end;
+    max-width:560px; margin-top:24px;
+  }
+  .form--inline .field{ flex:1 1 240px; margin-bottom:0; }
+  .form--inline .btn{ flex:0 0 auto; }
+  .form--inline .form__status{ flex:1 1 100%; }
+
+  /* ---------- Footer ---------- */
+  .footer{
+    background:var(--sage-deep); border-top:1px solid var(--line);
+    padding:40px 0;
+  }
+  .footer p{ font-size:13px; color:var(--teal-soft); max-width:72ch; margin:0; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px){
+    .hero__inner{ grid-template-columns:1fr; gap:36px; }
+    .hero__art{ order:-1; }
+    #cellMotif{ max-width:300px; }
+    .steps{ grid-template-columns:1fr; }
+    .why__grid{ grid-template-columns:1fr; }
+    .contact__grid{ grid-template-columns:1fr; gap:32px; }
+    .nav__cta{ margin-left:0; }
+    .topbar__phoneLabel{ display:none; }
+    .section{ padding:60px 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .btn{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#top" data-i18n="skip.link">Skip to main content</a>
+
+<header class="topbar">
+  <div class="topbar__inner container">
+    <a class="brand" href="#top" aria-label="Same-Day Cell Referral — home">
+      <svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="7" cy="13" r="3.4" style="fill:var(--teal)"></circle>
+        <circle cx="15.5" cy="8" r="2.6" style="fill:var(--coral)"></circle>
+        <circle cx="16.5" cy="16" r="2" style="fill:var(--teal-soft)"></circle>
+      </svg>
+      <span class="brand__name" data-i18n="brand.name">Same-Day Cell Referral</span>
+    </a>
+    <div class="topbar__right">
+      <!-- Placeholder referral line — replace with the real forwarding number -->
+      <a class="topbar__phone" href="tel:+13055550100">
+        <span class="topbar__phoneLabel" data-i18n="topbar.phoneLabel">Referral line</span>
+        <span class="topbar__phoneNum">+1 (305) 555-0100</span>
+      </a>
+      <button id="langToggle" class="langToggle" type="button" aria-label="Cambiar el idioma a español">
+        <span id="langToggleLabel">ES</span>
+      </button>
+    </div>
+  </div>
+  <nav class="nav container" aria-label="Section navigation" data-i18n-attr="aria-label:nav.aria">
+    <a href="#how" data-i18n="nav.how">How it works</a>
+    <a href="#pain" data-i18n="nav.pain">Joint pain</a>
+    <a href="#hair" data-i18n="nav.hair">Hair</a>
+    <a href="#compare" data-i18n="nav.compare">vs. PRP</a>
+    <a href="#why" data-i18n="nav.why">Why people ask</a>
+    <a href="#contact" data-i18n="nav.contact">Consultation</a>
+    <a href="#contact" class="nav__cta" data-i18n="nav.cta">Request a consultation</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div>
+        <p id="refPill" class="pill" hidden>
+          <span data-i18n="pill.referredBy">Referred by</span>:&nbsp;<span id="refPillCode"></span>
+        </p>
+        <p class="eyebrow" data-i18n="hero.eyebrow">Miami · Outpatient · Local anesthesia only</p>
+        <h1 data-i18n="hero.headline">A same-day stem cell procedure in Miami, using your own fat — with local anesthesia only.</h1>
+        <p class="hero__sub" data-i18n="hero.sub">No operating room and no general anesthesia. The full process — harvesting your own fat, preparing it on site, and injecting it — takes place in a single clinic visit. This page can connect you with Amedsi Stem Cells Clinics as an independent referral.</p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--primary" data-i18n="hero.cta">Request a consultation</a>
+          <a href="#how" class="btn btn--ghost" data-i18n="hero.ctaSecondary">See how it works</a>
+        </div>
+        <p class="disclosure" data-i18n="hero.disclosure">Independent referral partner of Amedsi Stem Cells Clinics — not a medical provider. Medical information and outcomes are determined solely by Amedsi's clinical staff.</p>
+      </div>
+      <div class="hero__art">
+        <svg id="cellMotif" viewBox="0 0 400 400" role="img" aria-labelledby="motifTitle">
+          <title id="motifTitle">Decorative pattern of dots arranged in a circle</title>
+          <circle cx="200" cy="200" r="184" style="fill:none;stroke:var(--line)"></circle>
+          <circle cx="200" cy="200" r="118" style="fill:none;stroke:var(--line)"></circle>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== How it works ===== -->
+  <section id="how" class="section section--sage">
+    <div class="container">
+      <h2 data-i18n="how.title">How the same-day procedure works</h2>
+      <p class="lead" data-i18n="how.lead">Three steps, completed in one appointment. You stay awake throughout and go home the same day.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step__n">01</div>
+          <h3 data-i18n="how.step1title">Fat harvesting</h3>
+          <p data-i18n="how.step1body">A small amount of fat is collected from your own body through a minimally invasive draw. This step uses local anesthesia only — there is no general anesthesia and no operating room.</p>
+        </div>
+        <div class="step">
+          <div class="step__n">02</div>
+          <h3 data-i18n="how.step2title">On-site preparation</h3>
+          <p data-i18n="how.step2body">During the same visit, the sample is processed in the clinic to concentrate the cell-rich portion used for treatment. Nothing is shipped elsewhere or frozen for another day.</p>
+        </div>
+        <div class="step">
+          <div class="step__n">03</div>
+          <h3 data-i18n="how.step3title">Targeted injection</h3>
+          <p data-i18n="how.step3body">The prepared material is injected into the treatment area the same day, placed by the clinical team based on your assessment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Pain ===== -->
+  <section id="pain" class="section">
+    <div class="container">
+      <h2 data-i18n="pain.title">Joint and pain-related questions</h2>
+      <p class="prose" data-i18n="pain.body1">One reason people ask about this procedure is ongoing joint discomfort — knees, shoulders, hips, and the lower back are common examples. The approach discussed with patients is to place cell-rich material from your own body near the area that hurts, during a single outpatient visit.</p>
+      <p class="prose"><strong class="attrib" data-i18n="pain.attrib">According to Amedsi:</strong> <span data-i18n="pain.body2">some patients describe changes in comfort and mobility over a period of weeks after treatment, with clinical staff tracking progress at follow-up visits. Individual results vary and are assessed case by case.</span></p>
+      <p class="note" data-i18n="pain.note">This is general information, not a promise of any particular result. Whether the procedure is appropriate for you is decided by Amedsi's clinical staff.</p>
+    </div>
+  </section>
+
+  <!-- ===== Hair ===== -->
+  <section id="hair" class="section section--sage">
+    <div class="container">
+      <h2 data-i18n="hair.title">Hair thinning questions</h2>
+      <p class="prose" data-i18n="hair.body1">The same approach using your own tissue is also discussed for thinning hair and areas of reduced density. The concept described to patients is to introduce cell-rich material from your own body into the scalp during one clinic visit, again under local anesthesia only.</p>
+      <p class="prose"><strong class="attrib" data-i18n="hair.attrib">According to Amedsi:</strong> <span data-i18n="hair.body2">some patients report gradual changes in hair density over a course of months, evaluated by the clinical team at follow-up visits. Results differ from person to person and are not guaranteed.</span></p>
+      <p class="note" data-i18n="hair.note">Nothing here should be read as a guaranteed outcome. Suitability and realistic expectations are set by Amedsi's clinicians, not by this referral page.</p>
+    </div>
+  </section>
+
+  <!-- ===== Comparison ===== -->
+  <section id="compare" class="section">
+    <div class="container">
+      <h2 data-i18n="compare.title">Stem cell procedure vs. PRP</h2>
+      <p class="lead" data-i18n="compare.intro">Both approaches use material taken from your own body and returned the same day. They differ in what is collected and what is concentrated. This overview is educational and simplified.</p>
+      <div class="tableWrap">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th data-i18n="compare.colHead">Aspect</th>
+              <th data-i18n="compare.col1">Autologous stem cell procedure</th>
+              <th data-i18n="compare.col2">Platelet-rich plasma (PRP)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th data-i18n="compare.r1label">Where the material comes from</th>
+              <td data-i18n="compare.r1a">Your own fat tissue, collected through a small draw.</td>
+              <td data-i18n="compare.r1b">Your own blood, collected through a standard draw.</td>
+            </tr>
+            <tr>
+              <th data-i18n="compare.r2label">What is concentrated</th>
+              <td data-i18n="compare.r2a">The cell-rich fraction separated from the fat sample.</td>
+              <td data-i18n="compare.r2b">Platelets and growth factors separated from the blood by spinning.</td>
+            </tr>
+            <tr>
+              <th data-i18n="compare.r3label">Typical setting</th>
+              <td data-i18n="compare.r3a">Outpatient clinic visit, local anesthesia only.</td>
+              <td data-i18n="compare.r3b">Outpatient clinic visit, usually topical or local numbing.</td>
+            </tr>
+            <tr>
+              <th data-i18n="compare.r4label">Same-day</th>
+              <td data-i18n="compare.r4a">Yes — harvest, prepare, and inject in one visit.</td>
+              <td data-i18n="compare.r4b">Yes — draw, spin, and inject in one visit.</td>
+            </tr>
+            <tr>
+              <th data-i18n="compare.r5label">Commonly asked about for</th>
+              <td data-i18n="compare.r5a">Joint discomfort and hair thinning, among others.</td>
+              <td data-i18n="compare.r5b">Joint discomfort, skin, and hair thinning, among others.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note" data-i18n="compare.disclaimer">This table is a general comparison for orientation only. Amedsi's clinical staff determine which option, if any, is appropriate for a given person.</p>
+    </div>
+  </section>
+
+  <!-- ===== Why people ask ===== -->
+  <section id="why" class="section section--sage">
+    <div class="container">
+      <h2 data-i18n="why.title">Why people ask about this</h2>
+      <ul class="why__grid">
+        <li>
+          <h3 data-i18n="why.i1t">Local anesthesia only</h3>
+          <p data-i18n="why.i1b">No general anesthesia and no operating room — the visit is outpatient from start to finish.</p>
+        </li>
+        <li>
+          <h3 data-i18n="why.i2t">Everything in one day</h3>
+          <p data-i18n="why.i2b">Harvesting, preparation, and injection are completed in a single appointment.</p>
+        </li>
+        <li>
+          <h3 data-i18n="why.i3t">Your own cells</h3>
+          <p data-i18n="why.i3b">The material comes from your own body, not from a donor or a synthetic product.</p>
+        </li>
+        <li>
+          <h3 data-i18n="why.i4t">Experienced supervision</h3>
+          <p data-i18n="why.i4b">According to Amedsi, its clinical team trained under Dr. Hans Werner.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 data-i18n="contact.title">Request a consultation</h2>
+      <p class="prose" data-i18n="contact.body">This form goes to an independent referral partner (Referral Code 202509100), not directly to Amedsi Stem Cells Clinics. Your details are passed along so the clinic's staff can follow up about scheduling and any medical questions.</p>
+
+      <div class="contact__grid">
+        <form id="contactForm" class="form" novalidate>
+          <input type="hidden" name="referral_code" id="contactRef">
+          <input type="hidden" name="form_type" value="contact">
+          <input type="hidden" name="_subject" value="New consultation request (referral page)">
+          <div class="field">
+            <label for="cName" data-i18n="contact.name">Name</label>
+            <input id="cName" name="name" type="text" autocomplete="name" required data-i18n-attr="placeholder:contact.name">
+          </div>
+          <div class="field">
+            <label for="cEmail" data-i18n="contact.email">Email</label>
+            <input id="cEmail" name="email" type="email" autocomplete="email" required data-i18n-attr="placeholder:contact.email">
+          </div>
+          <div class="field">
+            <label for="cPhone" data-i18n="contact.phone">Phone</label>
+            <input id="cPhone" name="phone" type="tel" autocomplete="tel" data-i18n-attr="placeholder:contact.phone">
+          </div>
+          <div class="field">
+            <label for="cMsg" data-i18n="contact.message">Message</label>
+            <textarea id="cMsg" name="message" rows="4" data-i18n-attr="placeholder:contact.message"></textarea>
+          </div>
+          <button class="btn btn--primary" type="submit" data-i18n="contact.submit">Send request</button>
+          <p class="form__status" id="contactStatus" role="status" aria-live="polite" hidden></p>
+          <p class="form__privacy" data-i18n="contact.privacy">Your contact details are used only to pass this referral along and to follow up about it.</p>
+        </form>
+
+        <aside>
+          <div class="asideActions">
+            <button type="button" id="shareBtn" class="btn btn--ghost" data-i18n="share.button">Copy link to share</button>
+            <span id="shareStatus" class="shareStatus" role="status" aria-live="polite" hidden data-i18n="share.copied">Link copied to clipboard</span>
+          </div>
+          <div class="callout">
+            <h3 data-i18n="call.title">Prefer to call the clinic yourself?</h3>
+            <!-- Placeholder — replace with Amedsi's published phone number. No ref tracking on this line. -->
+            <a class="btn btn--teal" href="tel:+13055550142" data-i18n="call.cta">Call Amedsi directly</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Mailing list ===== -->
+  <section id="newsletter" class="section section--sage">
+    <div class="container">
+      <h2 data-i18n="news.title">Not ready to book?</h2>
+      <p class="lead" data-i18n="news.body">Leave your email and we'll send occasional updates about the same-day procedure. No booking, no obligation.</p>
+      <form id="newsForm" class="form form--inline" novalidate>
+        <input type="hidden" name="referral_code" id="newsRef">
+        <input type="hidden" name="form_type" value="newsletter">
+        <input type="hidden" name="_subject" value="New newsletter signup (referral page)">
+        <div class="field">
+          <label for="nEmail" data-i18n="news.email">Email address</label>
+          <input id="nEmail" name="email" type="email" autocomplete="email" required data-i18n-attr="placeholder:news.email">
+        </div>
+        <button class="btn btn--primary" type="submit" data-i18n="news.submit">Keep me posted</button>
+        <p class="form__status" id="newsStatus" role="status" aria-live="polite" hidden></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p data-i18n="footer.text">Referral Code 202509100 · Independent referral page, not affiliated with or operated by Amedsi Stem Cells Clinics. All clinical claims sourced from amedsistemcellsclinics.com.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------- Copy strings ---------------- */
+  var STRINGS = {
+    en: {
+      "doc.title": "Same-Day Stem Cell Procedure in Miami — Independent Referral",
+      "skip.link": "Skip to main content",
+      "brand.name": "Same-Day Cell Referral",
+      "topbar.phoneLabel": "Referral line",
+      "nav.aria": "Section navigation",
+      "nav.how": "How it works",
+      "nav.pain": "Joint pain",
+      "nav.hair": "Hair",
+      "nav.compare": "vs. PRP",
+      "nav.why": "Why people ask",
+      "nav.contact": "Consultation",
+      "nav.cta": "Request a consultation",
+      "pill.referredBy": "Referred by",
+      "hero.eyebrow": "Miami · Outpatient · Local anesthesia only",
+      "hero.headline": "A same-day stem cell procedure in Miami, using your own fat — with local anesthesia only.",
+      "hero.sub": "No operating room and no general anesthesia. The full process — harvesting your own fat, preparing it on site, and injecting it — takes place in a single clinic visit. This page can connect you with Amedsi Stem Cells Clinics as an independent referral.",
+      "hero.cta": "Request a consultation",
+      "hero.ctaSecondary": "See how it works",
+      "hero.disclosure": "Independent referral partner of Amedsi Stem Cells Clinics — not a medical provider. Medical information and outcomes are determined solely by Amedsi's clinical staff.",
+      "how.title": "How the same-day procedure works",
+      "how.lead": "Three steps, completed in one appointment. You stay awake throughout and go home the same day.",
+      "how.step1title": "Fat harvesting",
+      "how.step1body": "A small amount of fat is collected from your own body through a minimally invasive draw. This step uses local anesthesia only — there is no general anesthesia and no operating room.",
+      "how.step2title": "On-site preparation",
+      "how.step2body": "During the same visit, the sample is processed in the clinic to concentrate the cell-rich portion used for treatment. Nothing is shipped elsewhere or frozen for another day.",
+      "how.step3title": "Targeted injection",
+      "how.step3body": "The prepared material is injected into the treatment area the same day, placed by the clinical team based on your assessment.",
+      "pain.title": "Joint and pain-related questions",
+      "pain.body1": "One reason people ask about this procedure is ongoing joint discomfort — knees, shoulders, hips, and the lower back are common examples. The approach discussed with patients is to place cell-rich material from your own body near the area that hurts, during a single outpatient visit.",
+      "pain.attrib": "According to Amedsi:",
+      "pain.body2": "some patients describe changes in comfort and mobility over a period of weeks after treatment, with clinical staff tracking progress at follow-up visits. Individual results vary and are assessed case by case.",
+      "pain.note": "This is general information, not a promise of any particular result. Whether the procedure is appropriate for you is decided by Amedsi's clinical staff.",
+      "hair.title": "Hair thinning questions",
+      "hair.body1": "The same approach using your own tissue is also discussed for thinning hair and areas of reduced density. The concept described to patients is to introduce cell-rich material from your own body into the scalp during one clinic visit, again under local anesthesia only.",
+      "hair.attrib": "According to Amedsi:",
+      "hair.body2": "some patients report gradual changes in hair density over a course of months, evaluated by the clinical team at follow-up visits. Results differ from person to person and are not guaranteed.",
+      "hair.note": "Nothing here should be read as a guaranteed outcome. Suitability and realistic expectations are set by Amedsi's clinicians, not by this referral page.",
+      "compare.title": "Stem cell procedure vs. PRP",
+      "compare.intro": "Both approaches use material taken from your own body and returned the same day. They differ in what is collected and what is concentrated. This overview is educational and simplified.",
+      "compare.colHead": "Aspect",
+      "compare.col1": "Autologous stem cell procedure",
+      "compare.col2": "Platelet-rich plasma (PRP)",
+      "compare.r1label": "Where the material comes from",
+      "compare.r1a": "Your own fat tissue, collected through a small draw.",
+      "compare.r1b": "Your own blood, collected through a standard draw.",
+      "compare.r2label": "What is concentrated",
+      "compare.r2a": "The cell-rich fraction separated from the fat sample.",
+      "compare.r2b": "Platelets and growth factors separated from the blood by spinning.",
+      "compare.r3label": "Typical setting",
+      "compare.r3a": "Outpatient clinic visit, local anesthesia only.",
+      "compare.r3b": "Outpatient clinic visit, usually topical or local numbing.",
+      "compare.r4label": "Same-day",
+      "compare.r4a": "Yes — harvest, prepare, and inject in one visit.",
+      "compare.r4b": "Yes — draw, spin, and inject in one visit.",
+      "compare.r5label": "Commonly asked about for",
+      "compare.r5a": "Joint discomfort and hair thinning, among others.",
+      "compare.r5b": "Joint discomfort, skin, and hair thinning, among others.",
+      "compare.disclaimer": "This table is a general comparison for orientation only. Amedsi's clinical staff determine which option, if any, is appropriate for a given person.",
+      "why.title": "Why people ask about this",
+      "why.i1t": "Local anesthesia only",
+      "why.i1b": "No general anesthesia and no operating room — the visit is outpatient from start to finish.",
+      "why.i2t": "Everything in one day",
+      "why.i2b": "Harvesting, preparation, and injection are completed in a single appointment.",
+      "why.i3t": "Your own cells",
+      "why.i3b": "The material comes from your own body, not from a donor or a synthetic product.",
+      "why.i4t": "Experienced supervision",
+      "why.i4b": "According to Amedsi, its clinical team trained under Dr. Hans Werner.",
+      "contact.title": "Request a consultation",
+      "contact.body": "This form goes to an independent referral partner (Referral Code 202509100), not directly to Amedsi Stem Cells Clinics. Your details are passed along so the clinic's staff can follow up about scheduling and any medical questions.",
+      "contact.name": "Name",
+      "contact.email": "Email",
+      "contact.phone": "Phone",
+      "contact.message": "Message",
+      "contact.submit": "Send request",
+      "contact.sending": "Sending…",
+      "contact.success": "Thank you — your request has been sent. An independent referral partner will be in touch, and Amedsi's staff will handle any medical questions.",
+      "contact.error": "Something went wrong while sending the form. Please try again, or call the referral line.",
+      "contact.privacy": "Your contact details are used only to pass this referral along and to follow up about it.",
+      "share.button": "Copy link to share",
+      "share.copied": "Link copied to clipboard",
+      "call.title": "Prefer to call the clinic yourself?",
+      "call.cta": "Call Amedsi directly",
+      "news.title": "Not ready to book?",
+      "news.body": "Leave your email and we'll send occasional updates about the same-day procedure. No booking, no obligation.",
+      "news.email": "Email address",
+      "news.submit": "Keep me posted",
+      "news.sending": "Sending…",
+      "news.success": "You're on the list — thank you for your interest.",
+      "news.error": "Something went wrong. Please try again.",
+      "footer.text": "Referral Code 202509100 · Independent referral page, not affiliated with or operated by Amedsi Stem Cells Clinics. All clinical claims sourced from amedsistemcellsclinics.com."
+    },
+    es: {
+      "doc.title": "Procedimiento con células madre el mismo día en Miami — Referencia independiente",
+      "skip.link": "Saltar al contenido principal",
+      "brand.name": "Referencia · Células el mismo día",
+      "topbar.phoneLabel": "Línea de referencia",
+      "nav.aria": "Navegación de secciones",
+      "nav.how": "Cómo funciona",
+      "nav.pain": "Dolor articular",
+      "nav.hair": "Cabello",
+      "nav.compare": "vs. PRP",
+      "nav.why": "Por qué consultar",
+      "nav.contact": "Consulta",
+      "nav.cta": "Solicitar una consulta",
+      "pill.referredBy": "Referido por",
+      "hero.eyebrow": "Miami · Ambulatorio · Solo anestesia local",
+      "hero.headline": "Un procedimiento con células madre el mismo día en Miami, con tu propia grasa y solo anestesia local.",
+      "hero.sub": "Sin quirófano y sin anestesia general. Todo el proceso —extraer tu propia grasa, prepararla en la clínica e inyectarla— se realiza en una sola visita. Esta página puede ponerte en contacto con Amedsi Stem Cells Clinics como referencia independiente.",
+      "hero.cta": "Solicitar una consulta",
+      "hero.ctaSecondary": "Ver cómo funciona",
+      "hero.disclosure": "Socio de referencia independiente de Amedsi Stem Cells Clinics; no somos un proveedor médico. La información médica y los resultados los determina exclusivamente el personal clínico de Amedsi.",
+      "how.title": "Cómo funciona el procedimiento del mismo día",
+      "how.lead": "Tres pasos que se completan en una sola cita. Permaneces despierto en todo momento y vuelves a casa el mismo día.",
+      "how.step1title": "Extracción de grasa",
+      "how.step1body": "Se obtiene una pequeña cantidad de grasa de tu propio cuerpo mediante una extracción mínimamente invasiva. Este paso se realiza solo con anestesia local: no hay anestesia general ni quirófano.",
+      "how.step2title": "Preparación en la clínica",
+      "how.step2body": "Durante la misma visita, la muestra se procesa en la clínica para concentrar la fracción rica en células que se utiliza en el tratamiento. Nada se envía a otro lugar ni se congela para otro día.",
+      "how.step3title": "Inyección dirigida",
+      "how.step3body": "El material preparado se inyecta en la zona a tratar el mismo día, colocado por el equipo clínico según tu evaluación.",
+      "pain.title": "Preguntas sobre articulaciones y dolor",
+      "pain.body1": "Una de las razones por las que la gente pregunta por este procedimiento es el dolor articular persistente: rodillas, hombros, caderas y la zona lumbar son ejemplos frecuentes. El planteamiento que se comenta con los pacientes es colocar material rico en células del propio cuerpo cerca de la zona que duele, en una sola visita ambulatoria.",
+      "pain.attrib": "Según Amedsi:",
+      "pain.body2": "algunos pacientes describen cambios en la comodidad y la movilidad a lo largo de varias semanas después del tratamiento, y el personal clínico hace seguimiento de la evolución en las visitas de control. Los resultados individuales varían y se valoran caso por caso.",
+      "pain.note": "Esta es información general, no una promesa de ningún resultado concreto. Si el procedimiento es adecuado para ti lo decide el personal clínico de Amedsi.",
+      "hair.title": "Preguntas sobre el debilitamiento del cabello",
+      "hair.body1": "El mismo enfoque con tejido propio también se comenta para el cabello debilitado y las zonas con menos densidad. La idea que se explica a los pacientes es introducir material rico en células del propio cuerpo en el cuero cabelludo durante una visita a la clínica, de nuevo solo con anestesia local.",
+      "hair.attrib": "Según Amedsi:",
+      "hair.body2": "algunos pacientes refieren cambios graduales en la densidad del cabello a lo largo de varios meses, evaluados por el equipo clínico en las visitas de seguimiento. Los resultados difieren de una persona a otra y no están garantizados.",
+      "hair.note": "Nada de lo aquí expuesto debe interpretarse como un resultado garantizado. La idoneidad y las expectativas realistas las establecen los médicos de Amedsi, no esta página de referencia.",
+      "compare.title": "Procedimiento con células madre vs. PRP",
+      "compare.intro": "Ambos enfoques utilizan material obtenido de tu propio cuerpo y devuelto el mismo día. Se diferencian en lo que se extrae y en lo que se concentra. Este resumen es educativo y simplificado.",
+      "compare.colHead": "Aspecto",
+      "compare.col1": "Procedimiento autólogo con células madre",
+      "compare.col2": "Plasma rico en plaquetas (PRP)",
+      "compare.r1label": "De dónde procede el material",
+      "compare.r1a": "De tu propio tejido graso, obtenido mediante una pequeña extracción.",
+      "compare.r1b": "De tu propia sangre, obtenida mediante una extracción estándar.",
+      "compare.r2label": "Qué se concentra",
+      "compare.r2a": "La fracción rica en células separada de la muestra de grasa.",
+      "compare.r2b": "Plaquetas y factores de crecimiento separados de la sangre por centrifugación.",
+      "compare.r3label": "Entorno habitual",
+      "compare.r3a": "Visita ambulatoria a la clínica, solo con anestesia local.",
+      "compare.r3b": "Visita ambulatoria a la clínica, normalmente con anestesia tópica o local.",
+      "compare.r4label": "El mismo día",
+      "compare.r4a": "Sí: extraer, preparar e inyectar en una sola visita.",
+      "compare.r4b": "Sí: extraer, centrifugar e inyectar en una sola visita.",
+      "compare.r5label": "Se suele consultar para",
+      "compare.r5a": "Dolor articular y debilitamiento del cabello, entre otros.",
+      "compare.r5b": "Dolor articular, piel y debilitamiento del cabello, entre otros.",
+      "compare.disclaimer": "Esta tabla es una comparación general solo a modo de orientación. El personal clínico de Amedsi determina qué opción, si procede, es adecuada para cada persona.",
+      "why.title": "Por qué la gente pregunta por esto",
+      "why.i1t": "Solo anestesia local",
+      "why.i1b": "Sin anestesia general y sin quirófano: la visita es ambulatoria de principio a fin.",
+      "why.i2t": "Todo en un día",
+      "why.i2b": "La extracción, la preparación y la inyección se completan en una sola cita.",
+      "why.i3t": "Tus propias células",
+      "why.i3b": "El material procede de tu propio cuerpo, no de un donante ni de un producto sintético.",
+      "why.i4t": "Supervisión con experiencia",
+      "why.i4b": "Según Amedsi, su equipo clínico se formó con el Dr. Hans Werner.",
+      "contact.title": "Solicitar una consulta",
+      "contact.body": "Este formulario se envía a un socio de referencia independiente (Código de referencia 202509100), no directamente a Amedsi Stem Cells Clinics. Tus datos se transmiten para que el personal de la clínica pueda comunicarse contigo sobre la cita y cualquier pregunta médica.",
+      "contact.name": "Nombre",
+      "contact.email": "Correo electrónico",
+      "contact.phone": "Teléfono",
+      "contact.message": "Mensaje",
+      "contact.submit": "Enviar solicitud",
+      "contact.sending": "Enviando…",
+      "contact.success": "Gracias: tu solicitud se ha enviado. Un socio de referencia independiente se pondrá en contacto contigo, y el personal de Amedsi atenderá cualquier pregunta médica.",
+      "contact.error": "Hubo un problema al enviar el formulario. Vuelve a intentarlo o llama a la línea de referencia.",
+      "contact.privacy": "Tus datos de contacto se usan únicamente para transmitir esta referencia y dar seguimiento.",
+      "share.button": "Copiar enlace para compartir",
+      "share.copied": "Enlace copiado al portapapeles",
+      "call.title": "¿Prefieres llamar tú a la clínica?",
+      "call.cta": "Llamar directamente a Amedsi",
+      "news.title": "¿Aún no quieres reservar?",
+      "news.body": "Déjanos tu correo y te enviaremos novedades ocasionales sobre el procedimiento del mismo día. Sin reservas ni compromiso.",
+      "news.email": "Correo electrónico",
+      "news.submit": "Mantenerme informado",
+      "news.sending": "Enviando…",
+      "news.success": "Ya estás en la lista: gracias por tu interés.",
+      "news.error": "Hubo un problema. Vuelve a intentarlo.",
+      "footer.text": "Código de referencia 202509100 · Página de referencia independiente, sin afiliación con Amedsi Stem Cells Clinics ni operada por dicha clínica. Toda afirmación clínica procede de amedsistemcellsclinics.com."
+    }
+  };
+
+  /* ---------------- Referral tracking ---------------- */
+  var DEFAULT_CODE = "202509100";
+  var LS_LANG = "sdr_lang";
+  var LS_CODE = "sdr_ref_code";
+  var FORMSPREE = "https://formspree.io/f/xgaevpvj";
+
+  function lsGet(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+  function lsSet(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+
+  function resolveActiveCode(){
+    var params = new URLSearchParams(location.search);
+    var raw = params.get("ref");
+    var fromUrl = raw ? raw.trim() : "";
+    var stored = (lsGet(LS_CODE) || "").trim();
+    var code, partner;
+
+    if (fromUrl){
+      code = fromUrl;
+      partner = true;
+    } else if (stored){
+      code = stored;
+      partner = (stored !== DEFAULT_CODE);
+    } else {
+      code = DEFAULT_CODE;
+      partner = false;
+    }
+    lsSet(LS_CODE, code);
+    return { code: code, partner: partner };
+  }
+
+  var ACTIVE = resolveActiveCode();
+
+  /* ---------------- i18n ---------------- */
+  function initialLang(){
+    var saved = lsGet(LS_LANG);
+    if (saved === "en" || saved === "es") return saved;
+    var nav = (navigator.language || navigator.userLanguage || "").toLowerCase();
+    return nav.indexOf("es") === 0 ? "es" : "en";
+  }
+
+  function applyI18n(lang){
+    if (!STRINGS[lang]) lang = "en";
+    var dict = STRINGS[lang];
+    document.documentElement.lang = lang;
+    if (dict["doc.title"]) document.title = dict["doc.title"];
+
+    var nodes = document.querySelectorAll("[data-i18n]");
+    for (var i = 0; i < nodes.length; i++){
+      var key = nodes[i].getAttribute("data-i18n");
+      if (dict[key] != null) nodes[i].textContent = dict[key];
+    }
+
+    var attrNodes = document.querySelectorAll("[data-i18n-attr]");
+    for (var j = 0; j < attrNodes.length; j++){
+      var spec = attrNodes[j].getAttribute("data-i18n-attr");
+      var pairs = spec.split(";");
+      for (var p = 0; p < pairs.length; p++){
+        var idx = pairs[p].indexOf(":");
+        if (idx === -1) continue;
+        var attr = pairs[p].slice(0, idx).trim();
+        var k = pairs[p].slice(idx + 1).trim();
+        if (dict[k] != null) attrNodes[j].setAttribute(attr, dict[k]);
+      }
+    }
+
+    var tl = document.getElementById("langToggleLabel");
+    if (tl) tl.textContent = (lang === "es") ? "EN" : "ES";
+    var tb = document.getElementById("langToggle");
+    if (tb) tb.setAttribute("aria-label", (lang === "es") ? "Switch language to English" : "Cambiar el idioma a español");
+  }
+
+  /* ---------------- Cell motif ---------------- */
+  function buildMotif(){
+    var svg = document.getElementById("cellMotif");
+    if (!svg) return;
+    var ns = "http://www.w3.org/2000/svg";
+    var rings = [0, 40, 78, 116, 152, 184];
+    for (var ri = 0; ri < rings.length; ri++){
+      var rad = rings[ri];
+      var count = rad === 0 ? 1 : Math.max(6, Math.round((2 * Math.PI * rad) / 30));
+      for (var i = 0; i < count; i++){
+        var ang = (i / count) * Math.PI * 2 + ri * 0.4;
+        var x = 200 + Math.cos(ang) * rad;
+        var y = 200 + Math.sin(ang) * rad;
+        var c = document.createElementNS(ns, "circle");
+        c.setAttribute("cx", x.toFixed(1));
+        c.setAttribute("cy", y.toFixed(1));
+        var r = rad === 0 ? 8 : 5.4 - ri * 0.5;
+        if (r < 2) r = 2;
+        c.setAttribute("r", r.toFixed(1));
+        var accent = (ri === 1 && i === 2) || (ri === 3 && i === 5) || (ri === 5 && i === 12);
+        c.style.fill = accent ? "var(--coral)" : "var(--teal-soft)";
+        c.style.opacity = accent ? "1" : String(Math.max(0.28, 0.85 - ri * 0.12).toFixed(2));
+        svg.appendChild(c);
+      }
+    }
+  }
+
+  /* ---------------- Forms ---------------- */
+  function setStatus(el, dict, key, cls){
+    el.hidden = false;
+    el.className = "form__status" + (cls ? " " + cls : "");
+    el.setAttribute("data-i18n", key);
+    el.textContent = dict[key];
+  }
+
+  function wireForm(formId, statusId, keys){
+    var form = document.getElementById(formId);
+    var statusEl = document.getElementById(statusId);
+    if (!form) return;
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var lang = document.documentElement.lang || "en";
+      var dict = STRINGS[lang] || STRINGS.en;
+
+      var refField = form.querySelector('input[name="referral_code"]');
+      if (refField) refField.value = ACTIVE.code;
+
+      setStatus(statusEl, dict, keys.sending, null);
+      var submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
+
+      fetch(FORMSPREE, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" }
+      }).then(function(res){
+        var d = STRINGS[document.documentElement.lang] || STRINGS.en;
+        if (res.ok){
+          setStatus(statusEl, d, keys.success, "is-success");
+          form.reset();
+        } else {
+          setStatus(statusEl, d, keys.error, "is-error");
+        }
+      }).catch(function(){
+        var d = STRINGS[document.documentElement.lang] || STRINGS.en;
+        setStatus(statusEl, d, keys.error, "is-error");
+      }).then(function(){
+        if (submitBtn) submitBtn.disabled = false;
+      });
+    });
+  }
+
+  /* ---------------- Share link ---------------- */
+  function wireShare(){
+    var btn = document.getElementById("shareBtn");
+    var status = document.getElementById("shareStatus");
+    if (!btn) return;
+
+    btn.addEventListener("click", function(){
+      var base = (location.origin && location.origin !== "null")
+        ? location.origin + location.pathname
+        : location.href.split("?")[0].split("#")[0];
+      var url = base + "?ref=" + DEFAULT_CODE;
+
+      var done = function(){
+        var d = STRINGS[document.documentElement.lang] || STRINGS.en;
+        status.hidden = false;
+        status.textContent = d["share.copied"];
+        clearTimeout(status._t);
+        status._t = setTimeout(function(){ status.hidden = true; }, 3000);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url).then(done).catch(function(){ fallbackCopy(url); done(); });
+      } else {
+        fallbackCopy(url);
+        done();
+      }
+    });
+  }
+
+  function fallbackCopy(text){
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "absolute";
+    ta.style.left = "-9999px";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  /* ---------------- Init ---------------- */
+  buildMotif();
+
+  if (ACTIVE.partner){
+    var pill = document.getElementById("refPill");
+    var pillCode = document.getElementById("refPillCode");
+    if (pillCode) pillCode.textContent = ACTIVE.code;
+    if (pill) pill.hidden = false;
+  }
+
+  var contactRef = document.getElementById("contactRef");
+  var newsRef = document.getElementById("newsRef");
+  if (contactRef) contactRef.value = ACTIVE.code;
+  if (newsRef) newsRef.value = ACTIVE.code;
+
+  applyI18n(initialLang());
+
+  var langToggle = document.getElementById("langToggle");
+  if (langToggle){
+    langToggle.addEventListener("click", function(){
+      var next = (document.documentElement.lang === "es") ? "en" : "es";
+      lsSet(LS_LANG, next);
+      applyI18n(next);
+    });
+  }
+
+  wireForm("contactForm", "contactStatus", { sending: "contact.sending", success: "contact.success", error: "contact.error" });
+  wireForm("newsForm", "newsStatus", { sending: "news.sending", success: "news.success", error: "news.error" });
+  wireShare();
+})();
+</script>
+</body>
+</html>
