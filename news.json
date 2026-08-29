@@ -1,0 +1,48 @@
+{
+  "source": "ScienceDaily",
+  "sourceUrl": "https://www.sciencedaily.com/news/health_medicine/stem_cells/",
+  "feed": "https://www.sciencedaily.com/rss/health_medicine/stem_cells.xml",
+  "updated": "2026-08-29T21:44:14.066Z",
+  "items": [
+    {
+      "title": "A common vape flavoring may disrupt early embryo development",
+      "link": "https://www.sciencedaily.com/releases/2026/08/260828005215.htm",
+      "date": "2026-08-28T12:49:37.000Z"
+    },
+    {
+      "title": "Without this protein, damaged muscle turns to fat and scar tissue",
+      "link": "https://www.sciencedaily.com/releases/2026/08/260801042814.htm",
+      "date": "2026-08-02T13:23:34.000Z"
+    },
+    {
+      "title": "Osteopenia is silently weakening bones in millions of people",
+      "link": "https://www.sciencedaily.com/releases/2026/06/260624025511.htm",
+      "date": "2026-06-25T04:25:26.000Z"
+    },
+    {
+      "title": "Stanford scientists regrow lost cartilage and reverse arthritis in major breakthrough",
+      "link": "https://www.sciencedaily.com/releases/2026/06/260612021604.htm",
+      "date": "2026-06-12T12:35:15.000Z"
+    },
+    {
+      "title": "Scientists discover reversible male birth control that stops sperm production",
+      "link": "https://www.sciencedaily.com/releases/2026/04/260407193844.htm",
+      "date": "2026-04-08T00:52:22.000Z"
+    },
+    {
+      "title": "This breakthrough could finally unlock male birth control",
+      "link": "https://www.sciencedaily.com/releases/2026/02/260213223918.htm",
+      "date": "2026-02-14T15:47:27.000Z"
+    },
+    {
+      "title": "This discovery could let bones benefit from exercise without moving",
+      "link": "https://www.sciencedaily.com/releases/2026/01/260127010149.htm",
+      "date": "2026-01-27T14:48:33.000Z"
+    },
+    {
+      "title": "Scientists grow a tiny human “blood factory” that actually works",
+      "link": "https://www.sciencedaily.com/releases/2025/11/251120092103.htm",
+      "date": "2025-11-20T15:24:49.000Z"
+    }
+  ]
+}

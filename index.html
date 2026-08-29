@@ -373,6 +373,25 @@
   .form--inline .btn{ flex:0 0 auto; }
   .form--inline .form__status{ flex:1 1 100%; }
 
+  /* ---------- Research news (quiet, low-emphasis) ---------- */
+  .news{ padding:64px 0; background:var(--paper); }
+  .news__title{ font-size:1.4rem; }
+  .news__list{
+    list-style:none; margin:24px 0 0; padding:0;
+    border-top:1px solid var(--line); max-width:64ch;
+  }
+  .news__list li{
+    border-bottom:1px solid var(--line);
+    padding:14px 0; display:flex; flex-direction:column; gap:3px;
+  }
+  .news__link{
+    font-family:'Fraunces',serif; font-weight:500; font-size:1.02rem;
+    letter-spacing:-0.01em; color:var(--teal); text-decoration:none;
+  }
+  .news__link:hover{ text-decoration:underline; }
+  .news__meta{ font-size:11px; text-transform:uppercase; letter-spacing:.09em; color:var(--teal-soft); }
+  .news__source{ font-size:12px; color:var(--teal-soft); margin-top:16px; }
+
   /* ---------- Footer ---------- */
   .footer{
     background:var(--sage-deep); border-top:1px solid var(--line);
@@ -479,6 +498,7 @@
     <a href="#hair" data-i18n="nav.hair">Hair</a>
     <a href="#compare" data-i18n="nav.compare">vs. PRP</a>
     <a href="#why" data-i18n="nav.why">Why people ask</a>
+    <a href="#news-feed" data-i18n="nav.news">News</a>
     <a href="#contact" data-i18n="nav.contact">Consultation</a>
     <a href="#contact" class="nav__cta" data-i18n="nav.cta">Request a consultation</a>
   </nav>
@@ -694,6 +714,19 @@
     </div>
   </section>
 
+  <!-- ===== Research news (populated from news.json, hidden if unavailable) ===== -->
+  <section id="news-feed" class="section news" hidden>
+    <div class="container">
+      <h2 class="news__title" data-i18n="news.feedTitle">Stem cell research news</h2>
+      <p class="lead" data-i18n="news.feedIntro">Recent headlines from ScienceDaily, an independent science-news publisher. Provided for general interest — not affiliated with this page or with Amedsi Stem Cells Clinics, and not an endorsement of any treatment.</p>
+      <ul id="newsFeedList" class="news__list"></ul>
+      <p class="news__source">
+        <span data-i18n="news.feedSource">Source</span>:
+        <a href="https://www.sciencedaily.com/news/health_medicine/stem_cells/" target="_blank" rel="noopener nofollow">ScienceDaily — Stem Cells</a>
+      </p>
+    </div>
+  </section>
+
 </main>
 
 <footer class="footer">
@@ -719,6 +752,7 @@
       "nav.hair": "Hair",
       "nav.compare": "vs. PRP",
       "nav.why": "Why people ask",
+      "nav.news": "News",
       "nav.contact": "Consultation",
       "nav.cta": "Request a consultation",
       "pill.referredBy": "Referred by",
@@ -798,6 +832,9 @@
       "news.sending": "Sending…",
       "news.success": "You're on the list — thank you for your interest.",
       "news.error": "Something went wrong. Please try again.",
+      "news.feedTitle": "Stem cell research news",
+      "news.feedIntro": "Recent headlines from ScienceDaily, an independent science-news publisher. Provided for general interest — not affiliated with this page or with Amedsi Stem Cells Clinics, and not an endorsement of any treatment.",
+      "news.feedSource": "Source",
       "footer.text": "Referral Code 202509100 · Independent referral page, not affiliated with or operated by Amedsi Stem Cells Clinics. All clinical claims sourced from amedsistemcellsclinics.com."
     },
     es: {
@@ -811,6 +848,7 @@
       "nav.hair": "Cabello",
       "nav.compare": "vs. PRP",
       "nav.why": "Por qué consultar",
+      "nav.news": "Noticias",
       "nav.contact": "Consulta",
       "nav.cta": "Solicitar una consulta",
       "pill.referredBy": "Referido por",
@@ -890,6 +928,9 @@
       "news.sending": "Enviando…",
       "news.success": "Ya estás en la lista: gracias por tu interés.",
       "news.error": "Hubo un problema. Vuelve a intentarlo.",
+      "news.feedTitle": "Noticias de investigación con células madre",
+      "news.feedIntro": "Titulares recientes de ScienceDaily, un medio independiente de divulgación científica. Se ofrecen a título informativo; no están afiliados a esta página ni a Amedsi Stem Cells Clinics, y no constituyen un respaldo de ningún tratamiento.",
+      "news.feedSource": "Fuente",
       "footer.text": "Código de referencia 202509100 · Página de referencia independiente, sin afiliación con Amedsi Stem Cells Clinics ni operada por dicha clínica. Toda afirmación clínica procede de amedsistemcellsclinics.com."
     }
   };
@@ -1197,6 +1238,52 @@
     }
   }
 
+  /* ---------------- Research news feed ---------------- */
+  function loadNews(){
+    var section = document.getElementById("news-feed");
+    var list = document.getElementById("newsFeedList");
+    if (!section || !list) return;
+
+    fetch("news.json", { cache: "no-cache" })
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(data){
+        if (!data || !Array.isArray(data.items) || !data.items.length) return;
+        var lang = document.documentElement.lang === "es" ? "es-ES" : "en-US";
+        var fmt;
+        try {
+          fmt = new Intl.DateTimeFormat(lang, { year: "numeric", month: "short", day: "numeric" });
+        } catch (e) { fmt = null; }
+
+        var frag = document.createDocumentFragment();
+        data.items.slice(0, 5).forEach(function(it){
+          if (!it || !it.title || !/^https?:\/\//i.test(it.link || "")) return;
+          var li = document.createElement("li");
+
+          var a = document.createElement("a");
+          a.className = "news__link";
+          a.href = it.link;
+          a.target = "_blank";
+          a.rel = "noopener nofollow";
+          a.textContent = it.title;
+          li.appendChild(a);
+
+          var d = it.date ? new Date(it.date) : null;
+          if (d && !isNaN(d.getTime()) && fmt){
+            var meta = document.createElement("span");
+            meta.className = "news__meta";
+            meta.textContent = "ScienceDaily · " + fmt.format(d);
+            li.appendChild(meta);
+          }
+          frag.appendChild(li);
+        });
+
+        if (!frag.childNodes.length) return;
+        list.appendChild(frag);
+        section.hidden = false;
+      })
+      .catch(function(){ /* feed unavailable — section stays hidden */ });
+  }
+
   function fallbackCopy(text){
     var ta = document.createElement("textarea");
     ta.value = text;
@@ -1240,6 +1327,7 @@
   wireForm("newsForm", "newsStatus", { sending: "news.sending", success: "news.success", error: "news.error" });
   wireShare();
   setupReveal();
+  loadNews();
 })();
 </script>
 </body>
