@@ -574,6 +574,18 @@
     .reveal{ opacity:1 !important; transform:none !important; transition:none !important; }
   }
 </style>
+
+<!-- Vercel Web Analytics + Speed Insights (cookieless). Each requires the matching
+     feature enabled for this project in the Vercel dashboard; /_vercel/* is served
+     by Vercel's edge. Both scripts are deferred so they never block render. -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script>
+  window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
 </head>
 <body>
 
@@ -1694,12 +1706,5 @@
   wireChat();
 })();
 </script>
-
-<!-- Vercel Web Analytics (cookieless). Requires "Web Analytics" enabled for this
-     project in the Vercel dashboard; /_vercel/insights/* is served by Vercel's edge. -->
-<script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
