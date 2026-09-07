@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.stemcellconnectmiami.com/</loc>
     <lastmod>2026-09-06</lastmod>
@@ -11,5 +12,35 @@
     <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stemcellconnectmiami.com/same-day-stem-cell-procedure"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stemcellconnectmiami.com/es/procedimiento-celulas-madre-mismo-dia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stemcellconnectmiami.com/same-day-stem-cell-procedure"/>
+  </url>
+  <url>
+    <loc>https://www.stemcellconnectmiami.com/es/procedimiento-celulas-madre-mismo-dia</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stemcellconnectmiami.com/same-day-stem-cell-procedure"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stemcellconnectmiami.com/es/procedimiento-celulas-madre-mismo-dia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stemcellconnectmiami.com/same-day-stem-cell-procedure"/>
+  </url>
+  <url>
+    <loc>https://www.stemcellconnectmiami.com/stem-cells-for-joint-pain</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stemcellconnectmiami.com/stem-cells-for-joint-pain"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stemcellconnectmiami.com/es/celulas-madre-dolor-articular"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stemcellconnectmiami.com/stem-cells-for-joint-pain"/>
+  </url>
+  <url>
+    <loc>https://www.stemcellconnectmiami.com/es/celulas-madre-dolor-articular</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.stemcellconnectmiami.com/stem-cells-for-joint-pain"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.stemcellconnectmiami.com/es/celulas-madre-dolor-articular"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.stemcellconnectmiami.com/stem-cells-for-joint-pain"/>
   </url>
 </urlset>
