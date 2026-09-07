@@ -34,25 +34,47 @@
 <meta name="twitter:image:alt" content="Stem Cell Connect Miami — stem cell consultations in Miami">
 <meta name="twitter:url" content="https://www.stemcellconnectmiami.com/">
 
+<!-- Structured data (schema.org). The #clinic node (Amedsi Stem Cells Clinics)
+     currently carries a city-level address only. Once Amedsi's details are
+     confirmed, add to that node: address.streetAddress, address.postalCode,
+     "telephone", "geo" (latitude/longitude), "openingHoursSpecification",
+     "priceRange", "image", and "sameAs" (Google Business Profile / social URLs).
+     Do not add "review" / "aggregateRating" unless they are real. -->
 <script type="application/ld+json" id="ld-json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://SET-YOUR-DOMAIN.example/#website",
-      "url": "https://SET-YOUR-DOMAIN.example/",
-      "name": "Same-Day Stem Cells · Miami",
+      "@id": "https://www.stemcellconnectmiami.com/#website",
+      "url": "https://www.stemcellconnectmiami.com/",
+      "name": "Stem Cell Connect Miami",
+      "alternateName": "Same-Day Stem Cells · Miami",
       "inLanguage": ["en", "es"],
+      "publisher": { "@id": "https://www.stemcellconnectmiami.com/#referrer" },
       "description": "Independent referral page for the same-day, autologous (own-fat) stem cell procedure offered by Amedsi Stem Cells Clinics in Miami, performed under local anesthesia only."
     },
     {
       "@type": "Organization",
-      "@id": "https://SET-YOUR-DOMAIN.example/#referrer",
-      "name": "Same-Day Stem Cells · Miami (Independent Referral)",
-      "url": "https://SET-YOUR-DOMAIN.example/",
+      "@id": "https://www.stemcellconnectmiami.com/#referrer",
+      "name": "Stem Cell Connect Miami (Independent Referral)",
+      "alternateName": "Same-Day Stem Cells · Miami",
+      "url": "https://www.stemcellconnectmiami.com/",
+      "logo": "https://www.stemcellconnectmiami.com/og-image.png",
+      "image": "https://www.stemcellconnectmiami.com/og-image.png",
       "telephone": "+1-410-507-1203",
-      "areaServed": "Miami, Florida, United States",
+      "areaServed": {
+        "@type": "City",
+        "name": "Miami",
+        "containedInPlace": { "@type": "State", "name": "Florida" }
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-410-507-1203",
+        "contactType": "referrals",
+        "areaServed": "US",
+        "availableLanguage": ["English", "Spanish"]
+      },
       "description": "Independent referral partner for Amedsi Stem Cells Clinics. Not a medical provider and not affiliated with or operated by Amedsi Stem Cells Clinics; medical information and outcomes are determined solely by Amedsi's clinical staff.",
       "identifier": { "@type": "PropertyValue", "name": "Referral Code", "value": "202509100" },
       "knowsAbout": [
@@ -66,19 +88,61 @@
       ]
     },
     {
+      "@type": "MedicalClinic",
+      "@id": "https://www.stemcellconnectmiami.com/#clinic",
+      "name": "Amedsi Stem Cells Clinics",
+      "description": "Stem cell clinic in Miami, Florida offering a same-day, autologous (own-fat) adipose-derived stem cell procedure performed under local anesthesia only, with no operating room. Clinical decisions and outcomes are determined by Amedsi's clinical staff, who trained under Dr. Hans Werner.",
+      "url": "https://www.stemcellconnectmiami.com/",
+      "areaServed": {
+        "@type": "City",
+        "name": "Miami",
+        "containedInPlace": { "@type": "State", "name": "Florida" }
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Miami",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      },
+      "medicalSpecialty": ["Regenerative medicine", "Orthopedic"],
+      "availableService": [
+        { "@id": "https://www.stemcellconnectmiami.com/#procedure-joint" },
+        { "@id": "https://www.stemcellconnectmiami.com/#procedure-hair" }
+      ]
+    },
+    {
+      "@type": "MedicalProcedure",
+      "@id": "https://www.stemcellconnectmiami.com/#procedure-joint",
+      "name": "Same-day autologous fat-derived stem cell injection for joint pain",
+      "procedureType": "https://schema.org/PercutaneousProcedure",
+      "howPerformed": "The patient's own fat is harvested through a small minimally invasive draw, the cell-rich fraction is prepared on site, and it is injected during the same clinic visit under local anesthesia only, with no operating room and no general anesthesia.",
+      "bodyLocation": ["Knee", "Shoulder", "Hip", "Lower back"],
+      "provider": { "@id": "https://www.stemcellconnectmiami.com/#clinic" }
+    },
+    {
+      "@type": "MedicalProcedure",
+      "@id": "https://www.stemcellconnectmiami.com/#procedure-hair",
+      "name": "Same-day autologous fat-derived stem cell treatment for hair thinning",
+      "procedureType": "https://schema.org/PercutaneousProcedure",
+      "howPerformed": "The patient's own fat is harvested, the cell-rich fraction is prepared on site, and it is applied to the scalp in a single outpatient visit under local anesthesia only.",
+      "bodyLocation": "Scalp",
+      "provider": { "@id": "https://www.stemcellconnectmiami.com/#clinic" }
+    },
+    {
       "@type": "WebPage",
-      "@id": "https://SET-YOUR-DOMAIN.example/#webpage",
-      "url": "https://SET-YOUR-DOMAIN.example/",
-      "name": "Same-Day Stem Cell Procedure in Miami — Independent Referral",
-      "isPartOf": { "@id": "https://SET-YOUR-DOMAIN.example/#website" },
-      "publisher": { "@id": "https://SET-YOUR-DOMAIN.example/#referrer" },
+      "@id": "https://www.stemcellconnectmiami.com/#webpage",
+      "url": "https://www.stemcellconnectmiami.com/",
+      "name": "Stem Cell Consultations Miami | Stem Cell Connect Miami",
+      "isPartOf": { "@id": "https://www.stemcellconnectmiami.com/#website" },
+      "publisher": { "@id": "https://www.stemcellconnectmiami.com/#referrer" },
+      "primaryImageOfPage": "https://www.stemcellconnectmiami.com/og-image.png",
       "inLanguage": "en",
-      "about": "Same-day autologous (own-fat) stem cell procedure offered by Amedsi Stem Cells Clinics in Miami, performed under local anesthesia only with no operating room.",
-      "keywords": "same-day stem cell procedure, autologous fat stem cells, local anesthesia only, joint pain, hair thinning, stem cells vs PRP, stem cell research news",
-      "mainEntity": { "@id": "https://SET-YOUR-DOMAIN.example/#faq" },
+      "about": { "@id": "https://www.stemcellconnectmiami.com/#clinic" },
+      "keywords": "stem cell consultations Miami, Miami stem cell clinic, same-day stem cell procedure, autologous fat stem cells, local anesthesia only, joint pain, hair thinning, stem cells vs PRP, stem cell research news",
+      "mainEntity": { "@id": "https://www.stemcellconnectmiami.com/#faq" },
       "hasPart": {
         "@type": "WebPageElement",
-        "@id": "https://SET-YOUR-DOMAIN.example/#news-feed",
+        "@id": "https://www.stemcellconnectmiami.com/#news-feed",
         "name": "Stem cell research news",
         "description": "A regularly updated list of recent stem cell research headlines, linked from ScienceDaily.",
         "isAccessibleForFree": true
@@ -86,7 +150,7 @@
     },
     {
       "@type": "FAQPage",
-      "@id": "https://SET-YOUR-DOMAIN.example/#faq",
+      "@id": "https://www.stemcellconnectmiami.com/#faq",
       "mainEntity": [
         {
           "@type": "Question",
