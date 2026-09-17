@@ -2,8 +2,13 @@
   "source": "ScienceDaily",
   "sourceUrl": "https://www.sciencedaily.com/news/health_medicine/stem_cells/",
   "feed": "https://www.sciencedaily.com/rss/health_medicine/stem_cells.xml",
-  "updated": "2026-08-29T22:27:45.366Z",
+  "updated": "2026-09-17T11:38:41.430Z",
   "items": [
+    {
+      "title": "Hidden “immune organ” in the skull may help fight brain cancer",
+      "link": "https://www.sciencedaily.com/releases/2026/09/260915232134.htm",
+      "date": "2026-09-17T02:43:01.000Z"
+    },
     {
       "title": "A common vape flavoring may disrupt early embryo development",
       "link": "https://www.sciencedaily.com/releases/2026/08/260828005215.htm",
@@ -38,11 +43,6 @@
       "title": "This discovery could let bones benefit from exercise without moving",
       "link": "https://www.sciencedaily.com/releases/2026/01/260127010149.htm",
       "date": "2026-01-27T14:48:33.000Z"
-    },
-    {
-      "title": "Scientists grow a tiny human “blood factory” that actually works",
-      "link": "https://www.sciencedaily.com/releases/2025/11/251120092103.htm",
-      "date": "2025-11-20T15:24:49.000Z"
     }
   ]
 }
