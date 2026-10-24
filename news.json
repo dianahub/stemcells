@@ -2,8 +2,13 @@
   "source": "ScienceDaily",
   "sourceUrl": "https://www.sciencedaily.com/news/health_medicine/stem_cells/",
   "feed": "https://www.sciencedaily.com/rss/health_medicine/stem_cells.xml",
-  "updated": "2026-10-16T21:05:11.198Z",
+  "updated": "2026-10-24T20:45:48.063Z",
   "items": [
+    {
+      "title": "Scientists discover a hidden switch that burns fat and blocks new fat cells",
+      "link": "https://www.sciencedaily.com/releases/2026/10/261023002905.htm",
+      "date": "2026-10-24T11:16:08.000Z"
+    },
     {
       "title": "Scientists discover how exercise reverses muscle aging",
       "link": "https://www.sciencedaily.com/releases/2026/10/261015003550.htm",
@@ -38,11 +43,6 @@
       "title": "Scientists discover reversible male birth control that stops sperm production",
       "link": "https://www.sciencedaily.com/releases/2026/04/260407193844.htm",
       "date": "2026-04-08T00:52:22.000Z"
-    },
-    {
-      "title": "This breakthrough could finally unlock male birth control",
-      "link": "https://www.sciencedaily.com/releases/2026/02/260213223918.htm",
-      "date": "2026-02-14T15:47:27.000Z"
     }
   ]
 }
