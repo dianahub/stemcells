@@ -301,6 +301,42 @@
   .nav__cta{ margin-left:auto; color:var(--gold); font-weight:600; }
   .nav__cta:hover{ color:#f0d69a; }
 
+  /* ---------- Hamburger ---------- */
+  .menuBtn{
+    display:none; align-items:center; justify-content:center;
+    background:transparent; border:none; cursor:pointer;
+    color:#fff; padding:6px; border-radius:6px;
+    transition: background-color .15s ease;
+  }
+  .menuBtn:hover{ background:rgba(255,255,255,0.1); }
+  .menuBtn svg{ width:24px; height:24px; display:block; }
+  .mobileMenu{
+    display:none; flex-direction:column;
+    background:#10263c; border-top:1px solid rgba(255,255,255,0.1);
+    padding:8px 16px 16px;
+  }
+  .mobileMenu.is-open{ display:flex; }
+  .mobileMenu__phone{
+    display:flex; align-items:center; gap:8px;
+    padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.1);
+    text-decoration:none; color:rgba(255,255,255,0.7); font-size:14px;
+    transition:color .15s ease;
+  }
+  .mobileMenu__phone:hover{ color:#fff; }
+  .mobileMenu a:not(.mobileMenu__phone){
+    display:block; padding:12px 8px; color:rgba(255,255,255,0.82);
+    text-decoration:none; font-size:15px; font-weight:500;
+    border-radius:6px; transition:background-color .15s ease, color .15s ease;
+  }
+  .mobileMenu a:not(.mobileMenu__phone):hover{ background:rgba(255,255,255,0.08); color:#fff; }
+  .mobileMenu .nav__cta{ color:var(--gold); }
+  .mobileMenu .nav__cta:hover{ color:#f0d69a; background:rgba(207,159,63,0.1); }
+
+  @media (max-width: 860px){
+    .nav{ display:none; }
+    .menuBtn{ display:flex; }
+  }
+
   /* ---------- Buttons ---------- */
   .btn{
     display:inline-block; font:inherit; font-weight:500; font-size:15px; line-height:1;
@@ -673,7 +709,26 @@
       <button id="langToggle" class="langToggle" type="button" aria-label="Cambiar el idioma a español">
         <span id="langToggleLabel">Español</span>
       </button>
+      <button id="menuBtn" class="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
     </div>
+  </div>
+  <div id="mobileMenu" class="mobileMenu container" role="navigation" aria-label="Mobile navigation">
+    <a class="mobileMenu__phone" href="tel:+12026400054">
+      <span style="font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,0.5)">Referral line</span>
+      <span>+1 (202) 640-0054</span>
+    </a>
+    <a href="#how" data-i18n="nav.how">How it works</a>
+    <a href="/same-day-stem-cell-procedure" data-i18n="nav.procedure">The procedure</a>
+    <a href="/stem-cells-for-joint-pain" data-i18n="nav.pain">Joint pain</a>
+    <a href="#hair" data-i18n="nav.hair">Hair</a>
+    <a href="#compare" data-i18n="nav.compare">vs. PRP</a>
+    <a href="#why" data-i18n="nav.why">Why people ask</a>
+    <a href="#news-feed" data-i18n="nav.news">News</a>
+    <a href="#contact" class="nav__cta" data-i18n="nav.cta">Request a consultation</a>
   </div>
   <nav class="nav container" aria-label="Section navigation" data-i18n-attr="aria-label:nav.aria">
     <a href="#how" data-i18n="nav.how">How it works</a>
@@ -1287,6 +1342,33 @@
     var tb = document.getElementById("langToggle");
     if (tb) tb.setAttribute("aria-label", (lang === "es") ? "Switch language to English" : "Cambiar el idioma a español");
   }
+
+  /* ---------------- Hamburger menu ---------------- */
+  (function(){
+    var btn = document.getElementById("menuBtn");
+    var menu = document.getElementById("mobileMenu");
+    if (!btn || !menu) return;
+
+    var openIcon = '<path d="M4 6h16M4 12h16M4 18h16"/>';
+    var closeIcon = '<path d="M6 18L18 6M6 6l12 12"/>';
+
+    function setOpen(open){
+      menu.classList.toggle("is-open", open);
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      btn.querySelector("svg").innerHTML = open ? closeIcon : openIcon;
+    }
+
+    btn.addEventListener("click", function(){ setOpen(!menu.classList.contains("is-open")); });
+
+    // Close on link click
+    menu.querySelectorAll("a").forEach(function(a){
+      a.addEventListener("click", function(){ setOpen(false); });
+    });
+
+    // Close on Escape
+    document.addEventListener("keydown", function(e){ if (e.key === "Escape") setOpen(false); });
+  })();
 
   /* ---------------- Cell motif ---------------- */
   var NS = "http://www.w3.org/2000/svg";
