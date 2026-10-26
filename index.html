@@ -1515,7 +1515,7 @@
       fetch(LEAD_API, {
         method: "POST",
         body: JSON.stringify({
-          name: fd.get("name") || "",
+          name: fd.get("name") || fd.get("email") || "",
           email: fd.get("email") || "",
           phone: fd.get("phone") || undefined,
           message: fd.get("message") || undefined,
