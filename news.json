@@ -2,8 +2,13 @@
   "source": "ScienceDaily",
   "sourceUrl": "https://www.sciencedaily.com/news/health_medicine/stem_cells/",
   "feed": "https://www.sciencedaily.com/rss/health_medicine/stem_cells.xml",
-  "updated": "2026-10-24T20:45:48.063Z",
+  "updated": "2026-11-04T14:28:42.798Z",
   "items": [
+    {
+      "title": "A surprising discovery could help aging muscles repair themselves",
+      "link": "https://www.sciencedaily.com/releases/2026/11/261104005226.htm",
+      "date": "2026-11-04T13:26:06.000Z"
+    },
     {
       "title": "Scientists discover a hidden switch that burns fat and blocks new fat cells",
       "link": "https://www.sciencedaily.com/releases/2026/10/261023002905.htm",
@@ -38,11 +43,6 @@
       "title": "Stanford scientists regrow lost cartilage and reverse arthritis in major breakthrough",
       "link": "https://www.sciencedaily.com/releases/2026/06/260612021604.htm",
       "date": "2026-06-12T12:35:15.000Z"
-    },
-    {
-      "title": "Scientists discover reversible male birth control that stops sperm production",
-      "link": "https://www.sciencedaily.com/releases/2026/04/260407193844.htm",
-      "date": "2026-04-08T00:52:22.000Z"
     }
   ]
 }
