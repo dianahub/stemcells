@@ -2,8 +2,13 @@
   "source": "ScienceDaily",
   "sourceUrl": "https://www.sciencedaily.com/news/health_medicine/stem_cells/",
   "feed": "https://www.sciencedaily.com/rss/health_medicine/stem_cells.xml",
-  "updated": "2026-11-04T14:28:42.798Z",
+  "updated": "2026-11-13T14:30:46.465Z",
   "items": [
+    {
+      "title": "Without this protein, damaged muscle fills with fat and scar tissue",
+      "link": "https://www.sciencedaily.com/releases/2026/11/261111221643.htm",
+      "date": "2026-11-13T02:28:20.000Z"
+    },
     {
       "title": "A surprising discovery could help aging muscles repair themselves",
       "link": "https://www.sciencedaily.com/releases/2026/11/261104005226.htm",
@@ -38,11 +43,6 @@
       "title": "Osteopenia is silently weakening bones in millions of people",
       "link": "https://www.sciencedaily.com/releases/2026/06/260624025511.htm",
       "date": "2026-06-25T04:25:26.000Z"
-    },
-    {
-      "title": "Stanford scientists regrow lost cartilage and reverse arthritis in major breakthrough",
-      "link": "https://www.sciencedaily.com/releases/2026/06/260612021604.htm",
-      "date": "2026-06-12T12:35:15.000Z"
     }
   ]
 }
